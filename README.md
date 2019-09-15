@@ -29,7 +29,7 @@ For the following instructions use your command line. In Windows, it could be do
 
 1. Clone this repository. In your command line move to the directory that you would like to use as your base code directory. This command will add a directory below the directory you are in.
 ```sh
-git clone ??? This Repository ???
+git clone https://github.com/larryevolveu/01-getting-started.git
 ```
 2. Install the dependencies required for the project. This command looks at the 'package.json' file and installs all of the dependencies. 
 ```sh
