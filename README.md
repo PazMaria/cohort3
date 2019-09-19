@@ -29,17 +29,17 @@ For the following instructions use your command line. In Windows, it could be do
 
 1. Clone this repository. In your command line move to the directory that you would like to use as your base code directory. This command will add a directory below the directory you are in.
 ```sh
-git clone https://github.com/larryevolveu/01-getting-started.git
+git clone https://github.com/larryevolveu/cohort3.git
 ```
 2. Install the dependencies required for the project. This command looks at the 'package.json' file and installs all of the dependencies. 
 ```sh
-cd 01-getting-started
-npm -i
+cd cohort3
+npm i
 ```
 3. Run the automated unit tests to ensure the code works as advertised. 
 ```sh
 cd src
-cd mod1
+cd 01-getting-started
 npm test
 ```
 All the tests should run.
@@ -48,7 +48,7 @@ All the tests should run.
 ```sh
 live-server
 ```
-Look through the application. Notice in the "Size" section there is some logic that, based on a number, will tell you if it is small / medium / large.
+Look through the application. Notice in the "Size" section of the web page there is some logic that, based on a number, will tell you if it is small / medium / large.
 
 ## Dissecting what's there
 
@@ -58,10 +58,10 @@ As Full Stack Developers, we will often be expected to contribute or even write 
 
 1. Notice the directory structure. It may not be exact, but it will be close.
 ```
-01-getting-started/
+cohort3/
   node_modules/
   src/
-    mod1/
+    01-getting-started/
       images/
       scripts/
       index.css
@@ -70,4 +70,4 @@ As Full Stack Developers, we will often be expected to contribute or even write 
   README.md
 ```
 2. At your leisure, look through the HTML and CSS and figure out how it works. For now, let's look at the simple logic component.
-3. In file src/mod1/index.html search for "idSize". Let's drill into how that works. Look at src/mod1/scripts. We will spend some time here.
+3. In file src/01-getting-started/index.html search for "idSize". Let's drill into how that works. Look at src/01-getting-started/scripts. We will spend some time here.
