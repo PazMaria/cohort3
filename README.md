@@ -9,18 +9,18 @@ This project is the "Getting Started" project for EvovleU Full Stack Development
 
 The following tools are required to run the sample project:
 
-- git - If you do not have git installed see [git](https://git-scm.com). To check, enter:
+- git - If you do not have git installed, install with default parameters. See [git](https://git-scm.com). To check, enter:
 ```sh
 git --version
 ```
-- Node - If you do not have Node installed see [node](https://nodejs.org/en/). To check, enter: 
+- Node - If you do not have Node installed, install the LTS version (left). See [node](https://nodejs.org/en/). To check, enter: 
 ```sh
 node -v
 ```
 - VSCode - If you do not have VSCode installed see [VSCode](https://code.visualstudio.com/).
 - live-server - is a little development server with live reload capability. 
 ```sh
-install -g live-server
+npm install -g live-server
 ```
 
 ## Setup Instructions
