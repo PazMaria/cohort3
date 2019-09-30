@@ -10,7 +10,6 @@
         "test1cov": "jest src/01-getting-started --coverage",
         "testfile": "jest src/01-getting-started/scripts/lfsplay.test.js"
     },
-
     "keywords": [],
     "author": "",
     "license": "ISC",

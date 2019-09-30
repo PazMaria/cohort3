@@ -29,11 +29,11 @@ For the following instructions use your command line. In Windows, it could be do
 
 1. Clone this repository. In your command line move to the directory that you would like to use as your base code directory. This command will add a directory below the directory you are in.
 ```sh
-git clone https://github.com/larryevolveu/cohort3.git
+git clone https://github.com/larryevolveu/reference.git
 ```
 2. Install the dependencies required for the project. This command looks at the 'package.json' file and installs all of the dependencies. 
 ```sh
-cd cohort3
+cd reference
 npm i
 ```
 3. Run the automated unit tests to ensure the code works as advertised. 
@@ -58,7 +58,7 @@ As Full Stack Developers, we will often be expected to contribute or even write 
 
 1. Notice the directory structure. It may not be exact, but it will be close.
 ```
-cohort3/
+reference/
   node_modules/
   src/
     01-getting-started/
