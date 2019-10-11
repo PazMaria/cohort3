@@ -25,6 +25,14 @@ const functions = {
       console.log("P2-->)" + p2);
       return "false";
     }
+  },
+
+  //make email from array
+  makeEmailArr: anArray => {
+    return (
+      anArray[0].toLowerCase() + "." + anArray[1].toLowerCase() + "@evolveu.ca"
+    );
+    // return 0;
   }
 };
 
