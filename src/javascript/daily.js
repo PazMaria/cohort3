@@ -27,22 +27,33 @@ const functions = {
     }
   },
 
+  // and before this comment ---
+
+  // assertEquals("a", "b");
+  // assertEquals("a", "a");
+  // assertEquals(1, 2);
+  // assertEquals(2, 2);
+  // assertEquals("2", 2);
+  // assertEquals("This value", "This value");
+
   //make email from array
   makeEmailArr: anArray => {
     return (
       anArray[0].toLowerCase() + "." + anArray[1].toLowerCase() + "@evolveu.ca"
     );
     // return 0;
+  },
+
+  //make email from object
+  makeEmailObj: anObj => {
+    return (
+      anObj.fname.toLowerCase() +
+      "." +
+      anObj.lname.toLowerCase() +
+      "@evolveu.ca"
+    );
+    // return 0;
   }
 };
 
 export default functions;
-
-// and before this comment ---
-
-// assertEquals("a", "b");
-// assertEquals("a", "a");
-// assertEquals(1, 2);
-// assertEquals(2, 2);
-// assertEquals("2", 2);
-// assertEquals("This value", "This value");
