@@ -1,3 +1,5 @@
+import { arrayExpression } from "@babel/types";
+
 /*
 	Write the function that will create this output:
 
@@ -53,6 +55,68 @@ const functions = {
       "@evolveu.ca"
     );
     // return 0;
+  },
+
+  //Example of loop for in an array
+
+  forLoop: arr => {
+    let newArray = [];
+    for (let i = 0; i < arr.length; i++) {
+      newArray.push(arr[i]);
+    }
+    // return 0;
+    return newArray;
+  },
+
+  //Example of loop while in an array
+
+  forLoop: arr => {
+    let newArray = [];
+    let i = 0;
+    while (i < arr.length) {
+      newArray.push(arr[i]);
+      i++;
+    }
+    // return 0;
+    return newArray;
+  },
+
+  //Example of loop do while in an array
+
+  forLoop: arr => {
+    let newArray = [];
+    let i = 0;
+    do {
+      newArray.push(arr[i]);
+      i++;
+    } while (i < arr.length);
+    // return 0;
+    return newArray;
+  },
+
+  //Example of for in, in an array
+
+  loopForIn: () => {
+    const person = { fname: "Tim", lname: "Horton", age: 25 };
+    let result = "";
+    let i;
+    for (i in person) {
+      result += person[i] + " ";
+    }
+    // return 0;
+    return result;
+  },
+
+  //Example of loop for of an array
+
+  forOfLoop: arr => {
+    let result = "";
+    let i;
+    for (i of arr) {
+      result += i + " ";
+    }
+    // return 0;
+    return result;
   }
 };
 

@@ -39,3 +39,44 @@ test("email builder from an object / map", () => {
     "bill.smith@evolveu.ca"
   );
 });
+
+/* Create an example for: 
+  -loop for
+  - while
+  - do while
+  - for in
+  - for of*/
+
+test("Check loop for in an array", () => {
+  expect(functions.forLoop(["BMW", "Volvo", "Audi"])).toEqual([
+    "BMW",
+    "Volvo",
+    "Audi"
+  ]);
+});
+
+test("Check loop while in an array", () => {
+  expect(functions.forLoop(["BMW", "Volvo", "Audi"])).toEqual([
+    "BMW",
+    "Volvo",
+    "Audi"
+  ]);
+});
+
+test("Check loop do while in an array", () => {
+  expect(functions.forLoop(["BMW", "Volvo", "Audi"])).toEqual([
+    "BMW",
+    "Volvo",
+    "Audi"
+  ]);
+});
+
+test("Check loop for in", () => {
+  expect(functions.loopForIn()).toEqual("Tim Horton 25 ");
+});
+
+test("Check loop for of an array", () => {
+  expect(functions.forOfLoop(["BMW", "Volvo", "Audi"])).toEqual(
+    "BMW Volvo Audi "
+  );
+});
