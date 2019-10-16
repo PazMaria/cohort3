@@ -28,15 +28,24 @@ cal.addEventListener("click", function() {
         break;
 
       case "minus":
-        operandFunctions.minusFunc(Number(input1.value), Number(input2.value));
+        result.value = operandFunctions.minusFunc(
+          Number(input1.value),
+          Number(input2.value)
+        );
         break;
 
       case "times":
-        operandFunctions.timesFunc(Number(input1.value), Number(input2.value));
+        result.value = operandFunctions.timesFunc(
+          Number(input1.value),
+          Number(input2.value)
+        );
         break;
 
       case "divide":
-        operandFunctions.divFunc(Number(input1.value), Number(input2.value));
+        result.value = operandFunctions.divFunc(
+          Number(input1.value),
+          Number(input2.value)
+        );
         break;
     }
     input1.value = "";
