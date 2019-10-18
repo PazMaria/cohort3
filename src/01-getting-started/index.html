@@ -201,7 +201,43 @@
       </div>
     </div>
 
-    <script type="module" src="./scripts/calculator.js"></script>
+    <!-- ---------- Canadian Taxes------------------ -->
+
+<div id="taxes" class="w3-content w3-container w3-padding-64 w3-center"></div>
+<h2 class="bgimg-2 w3-display-container w3-opacity-min w3-xxlarge w3-text-white w3-wide w3-center">Canadian Taxes</h2>
+<div id="taxcalc" class= "w3-center">
+<p>Select your Province:</p>
+<select name="prov" id="pro">
+    <option value="AB">Alberta</option>
+    <option value="BC">British Columbia</option>
+    <option value="MB">Manitoba</option>
+    <option value="NB">New Brunswick</option>
+    <option value="NL">Newfoundland and Labrador</option>
+    <option value="NS">Nova Scotia</option>
+    <option value="ON">Ontario</option>
+    <option value="PE">Prince Edward Island</option>
+    <option value="QC">Quebec</option>
+    <option value="SK">Saskatchewan</option>
+    <option value="NT">Northwest Territories</option>
+    <option value="NU">Nunavut</option>
+    <option value="YT">Yukon</option>
+</select>
+<p>Enter your Taxable Income:</p>
+<input type="text" id="income" />
+<input id="calButton" type="button" value="Get Tax" />
+<p>Your Federal Tax is:</p>
+<input type="text" id="fedtax" />
+<p>Your Provincial Tax is:</p>
+<input type="text" id="provtax" />
+<p>Your Effective Tax Rate is:</p>
+<input type="text" id="etax" />
+</div>
+</div>
+
+
+
+
+
 
     <!-- Footer -->
     <footer
@@ -231,6 +267,8 @@
     </footer>
 
     <script type="module" src="./scripts/main.js"></script>
+    <script type="module" src="./scripts/calculator.js"></script>
+    <script type="module" src="./scripts/taxes.js"></script>
 
     <script>
       // Change style of navbar on scroll

@@ -1,5 +1,6 @@
 import functions from "./functions.js";
 import operandFunctions from "./calculator.js";
+import taxesFunctions from "./taxes.js";
 
 // **********
 //
@@ -50,5 +51,23 @@ cal.addEventListener("click", function() {
     }
     input1.value = "";
     input2.value = "";
+  }
+});
+
+//Canadian Taxes
+
+let tax = document.getElementById("calButton");
+let income = document.getElementById("income");
+let province = document.getElementById("pro");
+let fed = document.getElementById("fedtax");
+let erate = document.getElementById("etax");
+let inc;
+let provName;
+let prov;
+
+tax.addEventListener("click", function() {
+  if (income.value != "") {
+    taxesFunctions.fedTax(income.value);
+    erate.value = (fed.value / income.value) * 100;
   }
 });
