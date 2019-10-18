@@ -62,12 +62,17 @@ let province = document.getElementById("pro");
 let fed = document.getElementById("fedtax");
 let erate = document.getElementById("etax");
 let inc;
-let provName;
+let proTax = document.getElementById("provtax");
 let prov;
 
 tax.addEventListener("click", function() {
   if (income.value != "") {
-    taxesFunctions.fedTax(income.value);
-    erate.value = (fed.value / income.value) * 100;
+    fed.value = parseFloat(
+      taxesFunctions.fedTax(income.value, province.value)[0]
+    ).toFixed(2);
+    proTax.value = parseFloat(
+      taxesFunctions.fedTax(income.value, province.value)[1]
+    ).toFixed(2);
+    erate.value = parseFloat((fed.value / income.value) * 100).toFixed(2);
   }
 });

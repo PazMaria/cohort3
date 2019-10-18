@@ -1,78 +1,101 @@
 //Taxes functions
 
 const taxesFunctions = {
-  fedTax: inc => {
+  fedTax: (inc, prov) => {
+    let fed;
+    let pro;
+    let arr;
     switch (true) {
       case inc <= 47630:
-        // fed.value = inc * 0.15;
-        fed.value = inc * 0.3;
-        document.getElementById("provtax").value = provTax(
-          income.value,
-          province.value
-        );
+        fed = inc * 0.15;
+        // fed = inc * 0.3;
+        pro = taxesFunctions.provTax(inc, prov);
+        arr = [fed, pro];
         break;
       case inc <= 95259:
-        fed.value = (inc - 47630) * 0.205 + 7145;
-        document.getElementById("provtax").value = provTax(
-          income.value,
-          province.value
-        );
+        fed = (inc - 47630) * 0.205 + 7145;
+        pro = taxesFunctions.provTax(inc, prov);
+        arr = [fed, pro];
         break;
       case inc <= 147667:
-        fed.value = (inc - 95259) * 0.26 + 16908;
-        document.getElementById("provtax").value = provTax(
-          income.value,
-          province.value
-        );
+        fed = (inc - 95259) * 0.26 + 16908;
+        pro = taxesFunctions.provTax(inc, prov);
+        arr = [fed, pro];
         break;
       case inc <= 210371:
-        fed.value = (inc - 147667) * 0.29 + 30535;
-        document.getElementById("provtax").value = provTax(
-          income.value,
-          province.value
-        );
+        fed = (inc - 147667) * 0.29 + 30535;
+        pro = taxesFunctions.provTax(inc, prov);
+        arr = [fed, pro];
         break;
       case inc > 210371:
-        fed.value = (inc - 210371) * 0.33 + 48719;
-        document.getElementById("provtax").value = provTax(
-          income.value,
-          province.value
-        );
+        fed = (inc - 210371) * 0.33 + 48719;
+        pro = taxesFunctions.provTax(inc, prov);
+        arr = [fed, pro];
         break;
     }
+    return arr;
   },
 
-  provTax: (inc, provName) => {
+  provTax: (income, provName) => {
+    let provin;
     switch (provName) {
       case "AB":
         switch (true) {
-          case inc <= 131220:
-            prov = inc * 0.1;
+          case income <= 131220:
+            provin = income * 0.1;
             break;
-          case inc <= 157464:
-            prov = (inc - 131220) * 0.12 + 13122;
+          case income <= 157464:
+            provin = (income - 131220) * 0.12 + 13122;
             break;
-          case inc <= 209952:
-            prov = (inc - 157464) * 0.13 + 16271;
+          case income <= 209952:
+            provin = (income - 157464) * 0.13 + 16271;
             break;
-          case inc <= 314928:
-            prov = (inc - 209952) * 0.14 + 30967;
+          case income <= 314928:
+            provin = (income - 209952) * 0.14 + 30967;
             break;
-          case inc > 314928:
-            prov = (inc - 314928) * 0.15 + 78206;
+          case income > 314928:
+            provin = (income - 314928) * 0.15 + 78206;
             break;
         }
         break;
       case "BC":
+        provin = "Not Calculated";
         break;
       case "MB":
+        provin = "Not Calculated";
         break;
-      case "New Brunswick":
+      case "NB":
+        provin = "Not Calculated";
         break;
-      case "Newfoundland and Labrador":
+      case "NL":
+        provin = "Not Calculated";
+        break;
+      case "NS":
+        provin = "Not Calculated";
+        break;
+      case "ON":
+        provin = "Not Calculated";
+        break;
+      case "PE":
+        provin = "Not Calculated";
+        break;
+      case "QC":
+        provin = "Not Calculated";
+        break;
+      case "SK":
+        provin = "Not Calculated";
+        break;
+      case "NT":
+        provin = "Not Calculated";
+        break;
+      case "NU":
+        provin = "Not Calculated";
+        break;
+      case "YT":
+        provin = "Not Calculated";
         break;
     }
-    return prov;
+    return provin;
   }
 };
 
