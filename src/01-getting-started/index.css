@@ -125,3 +125,12 @@ input[type="radio"]:checked + label {
   margin: 0 auto;
   border: 2px solid black;
 }
+
+/*Working with Arrays*/
+
+#arr {
+  max-width: 300px;
+  margin: 0 auto;
+  border: 2px solid black;
+  padding: 20px;
+}
