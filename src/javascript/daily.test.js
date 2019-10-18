@@ -1,5 +1,53 @@
 import functions from "./daily";
 
+/* Daily exercise - October 16-17, 2019
+Working with Arrays */
+
+//array method slice
+test("method slice", () => {
+  expect(functions.examSlice(["banana", "apple", "orange"], 1, 2)).toEqual([
+    "apple"
+  ]);
+});
+
+//array method splice
+test("method splice", () => {
+  expect(
+    functions.examSplice(["banana", "apple", "orange"], 1, 0, "mango")
+  ).toEqual(["banana", "mango", "apple", "orange"]);
+});
+
+//forEach
+test("Check forEach", () => {
+  expect(functions.examForEach(["cat", "dog", "fish"])).toEqual(
+    "cat, dog, fish, "
+  );
+});
+
+//map
+test("Check map", () => {
+  expect(functions.examMap([4, 7, 9])).toEqual([8, 14, 18]);
+});
+
+//reduce
+test("Check reduce", () => {
+  expect(functions.examReduce([4, 7, 9])).toEqual(20);
+});
+
+//filter
+test("Check filter", () => {
+  expect(functions.examFilter([4, 7, 9, 22, 45])).toEqual([22, 45]);
+});
+
+//sort
+test("Check sort", () => {
+  expect(functions.examSort(["Smith", "Johnson", "Williams", "Jones"])).toEqual(
+    ["Johnson", "Jones", "Smith", "Williams"]
+  );
+});
+
+//----------------------------------------------------
+
 test("assertEquals", () => {
   console.log("daily");
   expect(functions.assertEquals("a", "b")).toBe("false");

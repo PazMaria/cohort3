@@ -1,23 +1,86 @@
 import { arrayExpression } from "@babel/types";
 
-/*
-	Write the function that will create this output:
+const functions = {
+  /* Daily exercise - October 16-17, 2019
+Working with Arrays*/
+
+  //slice
+  examSlice: (arr, start, end) => {
+    let result = arr.slice(start, end);
+    // return 0;
+    return result;
+  },
+
+  //splice
+  examSplice: (arr, pos, rem, ele) => {
+    arr.splice(pos, rem, ele);
+    // return 0;
+    return arr;
+  },
+
+  //forEach
+  examForEach: arr => {
+    let result = "";
+    arr.forEach(element => {
+      result += element + ", ";
+    });
+    // return 0;
+    return result;
+  },
+
+  //map
+  examMap: arr => {
+    let newArr;
+    newArr = arr.map(funcDouble);
+    function funcDouble(item) {
+      return item * 2;
+    }
+    // return 0;
+    return newArr;
+  },
+
+  //reduce
+  examReduce: arr => {
+    let newArr;
+    newArr = arr.reduce((total, amount) => total + amount);
+    // return 0;
+    return newArr;
+  },
+
+  //filter
+  examFilter: arr => {
+    let newArr;
+    newArr = arr.filter(num => num > 18);
+    // return 0;
+    return newArr;
+  },
+
+  //sort
+  examSort: arr => {
+    let newArr;
+    newArr = arr.sort();
+    // return 0;
+    return newArr;
+  },
+
+  /*---------------------------------------*/
+
+  /*
+Write the function that will create this output:
 
 *** the two values are not the same:
-    p1--> a
-    p2--> b
+  p1--> a
+  p2--> b
 *** the two values are not the same:
-    p1--> 1
-    p2--> 2
+  p1--> 1
+  p2--> 2
 *** the two values are not the same:
-    p1--> 2
-    p2--> 2
+  p1--> 2
+  p2--> 2
 */
 
-// Write the function after this comment ---
-// const equal (num1, num2) => {
+  // Write the function after this comment ---
 
-const functions = {
   assertEquals: (p1, p2) => {
     if (p1 === p2) {
       return "true";
