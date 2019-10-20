@@ -134,3 +134,12 @@ input[type="radio"]:checked + label {
   border: 2px solid black;
   padding: 20px;
 }
+
+/*Working with Dictionaries*/
+
+#dicc {
+  max-width: 300px;
+  margin: 0 auto 10px;
+  border: 2px solid black;
+  padding: 20px;
+}

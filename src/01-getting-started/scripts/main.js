@@ -1,6 +1,7 @@
 import functions from "./functions.js";
 import operandFunctions from "./calculator.js";
 import taxesFunctions from "./taxes.js";
+import arrayFunctions from "./arrays.js";
 
 // **********
 //
@@ -75,4 +76,36 @@ tax.addEventListener("click", function() {
     ).toFixed(2);
     erate.value = parseFloat((fed.value / income.value) * 100).toFixed(2);
   }
+});
+
+//Working With Arrays
+
+const array = [];
+let num = document.getElementById("inp");
+let addArray = document.getElementById("add");
+let message;
+addArray.addEventListener("click", function() {
+  if (num != "") {
+    message = arrayFunctions.addArrayF(num.value);
+  }
+  if (message == "Number has been added to the array.") {
+    array.push(num.value);
+    num.value = "";
+  }
+  document.getElementById("msg").textContent = message;
+});
+let showArray = document.getElementById("show");
+showArray.addEventListener("click", function() {
+  document.getElementById("msg").textContent = array.toString();
+});
+let totalArray = document.getElementById("tot");
+totalArray.addEventListener("click", function() {
+  document.getElementById("msg").textContent = arrayFunctions.totalArrayF(
+    array
+  );
+});
+let clearArray = document.getElementById("clear");
+clearArray.addEventListener("click", function() {
+  arrayFunctions.clearArrayF(array);
+  document.getElementById("msg").textContent = "Array has been cleared";
 });
