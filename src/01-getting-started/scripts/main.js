@@ -2,6 +2,7 @@ import functions from "./functions.js";
 import operandFunctions from "./calculator.js";
 import taxesFunctions from "./taxes.js";
 import arrayFunctions from "./arrays.js";
+import dictionaryFunctions from "./dictionaries.js";
 
 // **********
 //
@@ -108,4 +109,31 @@ let clearArray = document.getElementById("clear");
 clearArray.addEventListener("click", function() {
   arrayFunctions.clearArrayF(array);
   document.getElementById("msg").textContent = "Array has been cleared";
+});
+
+//Working With Dictionaries
+const provDictionary = {
+  AB: "Alberta",
+  BC: "British Columbia",
+  MB: "Manitoba",
+  NB: "New Brunswick",
+  NL: "Newfoundland and Labrador",
+  NT: "Northwest Territories",
+  NS: "Nova Scotia",
+  NU: "Nunavut",
+  ON: "Ontario",
+  PE: "Prince Edward Island",
+  QC: "Quebec",
+  SK: "Saskatchewan",
+  YT: "Yukon"
+};
+
+const lookUp = document.getElementById("look");
+const inpu = document.getElementById("inpu");
+const txt = document.getElementById("msgD");
+
+lookUp.addEventListener("click", function() {
+  if (inpu != "") {
+    txt.textContent = dictionaryFunctions.lookUpF(provDictionary, inpu.value);
+  }
 });
