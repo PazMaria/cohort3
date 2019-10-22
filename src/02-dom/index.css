@@ -1,12 +1,41 @@
-body {
+/* body {
   height: 100%;
   color: #777;
   line-height: 1.8;
-}
+} */
 
 #dom {
   max-width: 300px;
   margin: 0 auto;
   border: 2px solid black;
   padding: 20px;
+}
+
+#main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+}
+
+.cardContain {
+  border: 2px solid black;
+  padding: 20px;
+  margin: 10px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 10px;
+  border: 2px solid black;
+}
+
+.add {
+  grid-column: 1/2;
+  text-align: center;
+}
+
+.del {
+  grid-column: 2/2;
+  text-align: center;
 }

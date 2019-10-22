@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
+    <!-- Basic DOM -->
     <div id="dom">
-      <h1>Working with DOM</h1>
+      <h2>Working with DOM</h2>
       <ol id="list">
         This is a list of stuff
         <li class="li">Item 1</li>
@@ -21,7 +22,18 @@
       <div id="msg"></div>
     </div>
 
+    <!-- Working with cards -->
+    <h2>Working with Cards</h2>
+    <div id="main">
+      <div class="cardContain" id="leftDiv">
+        <input id="addC" type="button" value="Add Card" />
+      </div>
+
+      <div class="cardContain" id="rightDiv">
+        <h3>Right Side</h3>
+      </div>
+    </div>
+
     <script type="module" src="./scripts/main.js"></script>
-    <script type="module" src="./scripts/functions.js"></script>
   </body>
 </html>

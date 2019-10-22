@@ -1,7 +1,10 @@
 import functions from "./functions.js";
+
+// Basic DOM
+
 const oList = document.createElement("ol");
 const lItem = document.createElement("li");
-// lItem.textContent = "New Item";
+
 oList.appendChild(lItem);
 
 test("Show children of <ol>", () => {
@@ -9,5 +12,13 @@ test("Show children of <ol>", () => {
 });
 
 test("Add new nodes", () => {
-  expect(functions.addNod("p", "I'm new")).toEqual("p");
+  expect(functions.addNod("p", "I'm new")).toEqual("<p>I'm new</p>");
+});
+
+// Working with Cards
+
+test("Add cards", () => {
+  let count = 0;
+  const newDiv = document.createElement("div");
+  expect(functions.addCard(newDiv, count)).toEqual(0);
 });
