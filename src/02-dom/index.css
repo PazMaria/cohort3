@@ -1,0 +1,12 @@
+body {
+  height: 100%;
+  color: #777;
+  line-height: 1.8;
+}
+
+#dom {
+  max-width: 300px;
+  margin: 0 auto;
+  border: 2px solid black;
+  padding: 20px;
+}
