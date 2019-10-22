@@ -1,6 +1,16 @@
-import { arrayExpression } from "@babel/types";
-
 const functions = {
+  /* Daily exercise - October 21, 2019
+loopStaff*/
+
+  loopStaff: arr => {
+    let names = [];
+    for (let i = 0; i < arr.length; i++) {
+      names.push(functions.makeEmailObj(arr[i]));
+    }
+    return names;
+    // return 0;
+  },
+
   /* Daily exercise - October 16-17, 2019
 Working with Arrays*/
 
