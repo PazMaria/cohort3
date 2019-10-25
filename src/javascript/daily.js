@@ -1,4 +1,24 @@
 const functions = {
+  /* Daily exercise - October 24, 2019
+loopStaffIn*/
+  loopStaffIn: arr => {
+    let names = [];
+    for (let i in arr) {
+      names.push(functions.makeEmailObj(arr[i]));
+    }
+    return names;
+    // return [];
+  },
+
+  loopStaffOf: arr => {
+    let names = [];
+    for (let i of arr) {
+      names.push(functions.makeEmailObj(i));
+    }
+    return names;
+    // return [];
+  },
+
   /* Daily exercise - October 21, 2019
 loopStaff*/
 

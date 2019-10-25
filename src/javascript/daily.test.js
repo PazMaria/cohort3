@@ -1,7 +1,5 @@
 import functions from "./daily";
 
-/* Daily exercise - October 21, 2019
-loopStaff*/
 const data = {
   staff: [
     { fname: "Jane", lname: "Smith", balance: 10 },
@@ -17,6 +15,25 @@ const data = {
   prov: "Alberta"
 };
 
+/* Daily exercise - October 24, 2019
+loopStaffIn*/
+test("email staff", () => {
+  const staffEmail = functions.loopStaffIn(data.staff);
+  expect(staffEmail[0]).toEqual("jane.smith@evolveu.ca");
+  expect(staffEmail[3]).toEqual("olivia.notly@evolveu.ca");
+  expect(staffEmail[6]).toEqual("benjamin.amis@evolveu.ca");
+});
+
+// loopStaffOf
+test("email staff", () => {
+  const staffEmail = functions.loopStaffOf(data.staff);
+  expect(staffEmail[0]).toEqual("jane.smith@evolveu.ca");
+  expect(staffEmail[3]).toEqual("olivia.notly@evolveu.ca");
+  expect(staffEmail[6]).toEqual("benjamin.amis@evolveu.ca");
+});
+
+/* Daily exercise - October 21, 2019
+loopStaff*/
 test("email builder for company", () => {
   const staffEmail = functions.loopStaff(data.staff);
   expect(staffEmail[0]).toEqual("jane.smith@evolveu.ca");
