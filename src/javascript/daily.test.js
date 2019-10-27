@@ -15,9 +15,27 @@ const data = {
   prov: "Alberta"
 };
 
+/* Daily exercise - October 25, 2019
+loopStaffForEach*/
+test("email staff with forEach", () => {
+  const staffEmail = functions.loopStaffForEach(data.staff);
+  expect(staffEmail[0]).toEqual("jane.smith@evolveu.ca");
+  expect(staffEmail[3]).toEqual("olivia.notly@evolveu.ca");
+  expect(staffEmail[6]).toEqual("benjamin.amis@evolveu.ca");
+});
+
+// loopStaffMap
+
+test("email staff with Map", () => {
+  const staffEmail = functions.loopStaffMap(data.staff);
+  expect(staffEmail[0]).toEqual("jane.smith@evolveu.ca");
+  expect(staffEmail[3]).toEqual("olivia.notly@evolveu.ca");
+  expect(staffEmail[6]).toEqual("benjamin.amis@evolveu.ca");
+});
+
 /* Daily exercise - October 24, 2019
 loopStaffIn*/
-test("email staff", () => {
+test("email staff with loop in", () => {
   const staffEmail = functions.loopStaffIn(data.staff);
   expect(staffEmail[0]).toEqual("jane.smith@evolveu.ca");
   expect(staffEmail[3]).toEqual("olivia.notly@evolveu.ca");
@@ -25,7 +43,7 @@ test("email staff", () => {
 });
 
 // loopStaffOf
-test("email staff", () => {
+test("email staff with loop of", () => {
   const staffEmail = functions.loopStaffOf(data.staff);
   expect(staffEmail[0]).toEqual("jane.smith@evolveu.ca");
   expect(staffEmail[3]).toEqual("olivia.notly@evolveu.ca");
