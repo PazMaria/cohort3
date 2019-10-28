@@ -16,35 +16,53 @@ const functions = {
     // return "";
   },
 
-  addCard: (node, counter) => {
+  //Working with Cards
+
+  cardNum: 0,
+
+  addCard: node => {
+    functions.cardNum++;
     const newCard = document.createElement("div");
     const addBe = document.createElement("input");
     const addAf = document.createElement("input");
     const del = document.createElement("input");
+
     node.appendChild(newCard);
     newCard.className = "card";
-    newCard.setAttribute("counter", counter);
-    newCard.textContent = `Card ${counter}`;
+    newCard.setAttribute("counter", functions.cardNum);
+    newCard.textContent = `Card ${functions.cardNum}`;
+
     addBe.setAttribute("type", "button");
     addBe.setAttribute("class", "add");
     addBe.setAttribute("id", "addBe");
     addBe.setAttribute("value", "Add Before");
     addAf.setAttribute("type", "button");
     addAf.setAttribute("class", "add");
-      addBe.setAttribute("id", "addAf");
+    addAf.setAttribute("id", "addAf");
     addAf.setAttribute("value", "Add After");
     del.setAttribute("type", "button");
     del.setAttribute("class", "del");
-      addBe.setAttribute("id", "del");
+    del.setAttribute("id", "del");
     del.setAttribute("value", "Delete");
+
     newCard.appendChild(addBe);
     newCard.appendChild(addAf);
     newCard.appendChild(del);
 
-    return counter;
+    return newCard;
   },
 
-  addBefore: 
+  addBeF: (card, parent) => {
+    parent.insertBefore(functions.addCard(parent), card);
+  },
+
+  addAf: (card, parent) => {
+    parent.insertBefore(functions.addCard(parent), card.nextSibling);
+  },
+
+  delF: card => {
+    card.remove();
+  }
 };
 
 export default functions;

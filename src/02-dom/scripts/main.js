@@ -24,14 +24,24 @@ addB.addEventListener("click", function() {
 
 let left = document.getElementById("leftDiv");
 let addC = document.getElementById("addC");
-let addBeE = document.getElementById("addBe");
-let addAfE = document.getElementById("addAf");
-let delE = document.getElementById("del");
-let count = 0;
+
+// let count = 1;
 
 addC.addEventListener("click", function() {
-  //   left.appendChild(functions.addCard(left, count++));
-  functions.addCard(left, count++);
+  functions.addCard(left);
 });
 
-addC.addEventListener("click", function () {
+left.addEventListener("click", function(e) {
+  let clickedNode = e.target;
+  switch (true) {
+    case clickedNode.id === "addBe":
+      functions.addBeF(clickedNode.parentElement, left);
+      break;
+    case clickedNode.id === "addAf":
+      functions.addAf(clickedNode.parentElement, left);
+      break;
+    case clickedNode.id === "del":
+      functions.delF(clickedNode.parentElement);
+      break;
+  }
+});
