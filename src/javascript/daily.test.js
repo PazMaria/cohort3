@@ -15,6 +15,18 @@ const data = {
   prov: "Alberta"
 };
 
+/* Daily exercise - October 29, 2019*/
+
+//total balance
+test("return total balances", () => {
+  expect(functions.totalBalance(data.staff)).toEqual(3823);
+});
+
+//average balance
+test("return average balances", () => {
+  expect(functions.averageBalance(data.staff)).toEqual(3823 / 7);
+});
+
 /* Daily exercise - October 25, 2019
 loopStaffForEach*/
 test("email staff with forEach", () => {

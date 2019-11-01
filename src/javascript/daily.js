@@ -1,4 +1,20 @@
 const functions = {
+  /* Daily exercise - October 29, 2019 */
+
+  //Total balance
+  totalBalance: arr => {
+    let initialA = 0;
+    let sum = arr.reduce((total, amount) => total + amount.balance, initialA);
+    return sum;
+  },
+
+  //Average balance
+  averageBalance: arr => {
+    let initialA = 0;
+    let sum = arr.reduce((total, amount) => total + amount.balance, initialA);
+    return sum / 7;
+  },
+
   /* Daily exercise - October 25, 2019
 loopStaffForEach - loopStaffMap*/
   loopStaffForEach: arr => {
