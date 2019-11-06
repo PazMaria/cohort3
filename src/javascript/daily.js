@@ -1,4 +1,15 @@
 const functions = {
+  /* Daily exercise - November 6, 2019*/
+
+  //array with balances >= 1000
+
+  balanceAbove: arr => {
+    let newArr = [];
+    arr.forEach(person => {
+      newArr.push(person.balance);
+    });
+    return newArr.filter(balance => balance >= 1000);
+  },
   /* Daily exercise - October 29, 2019 */
 
   //Total balance

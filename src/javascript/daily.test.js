@@ -15,6 +15,13 @@ const data = {
   prov: "Alberta"
 };
 
+/* Daily exercise - November 6, 2019*/
+
+//array with balances >= 1000
+test("return balances >= 1000", () => {
+  expect(functions.balanceAbove(data.staff)).toEqual([1000, 1330]);
+});
+
 /* Daily exercise - October 29, 2019*/
 
 //total balance
