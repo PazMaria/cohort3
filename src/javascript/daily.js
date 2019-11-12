@@ -1,4 +1,28 @@
 const functions = {
+  /* Daily exercise - November 8, 2019*/
+
+  //Callback for people from BC or Alberta
+
+  onlyBcAb: (arr, callback) => {
+    let newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].province === "AB" || arr[i].province === "BC") {
+        if (typeof callback === "function") {
+          newArr.push(callback(arr[i]));
+        }
+      }
+    }
+    return newArr;
+  },
+
+  fullNames: obj => {
+    return obj.fname + " " + obj.lname;
+    // let newArr = [];
+    // for (let i = 0; i < arr.length; i++) {
+    // newArr.push(obj.fname + " " + obj.lname);
+    // return newArr;
+  },
+
   /* Daily exercise - November 6, 2019*/
 
   //array with balances >= 1000

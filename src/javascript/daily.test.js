@@ -1,5 +1,168 @@
 import functions from "./daily";
 
+/* Daily exercise - November 8, 2019*/
+const people = [
+  { fname: "Alex", lname: "Smith", province: "BC", age: 33 },
+  { fname: "Angela", lname: "Jones", province: "AB", age: 61 },
+  { fname: "Anne", lname: "Bird", province: "SK", age: 35 },
+  { fname: "Brent", lname: "Riddle", province: "MN", age: 79 },
+  { fname: "Byron", lname: "Cardenas", province: "BC", age: 38 },
+  { fname: "Carrie", lname: "Ramirez", province: "AB", age: 89 },
+  { fname: "Cheryl", lname: "Glenn", province: "SK", age: 70 },
+  { fname: "Dima", lname: "Curry", province: "MN", age: 67 },
+  { fname: "Dustin", lname: "Bullock", province: "BC", age: 59 },
+  { fname: "Eva", lname: "Keiths", province: "AB", age: 24 },
+  { fname: "Faith", lname: "Liu", province: "SK", age: 46 },
+  { fname: "Fawad", lname: "Bowman", province: "MN", age: 69 },
+  { fname: "Forest", lname: "Vaughn", province: "BC", age: 52 },
+  { fname: "Giovanni", lname: "Browning", province: "AB", age: 32 },
+  { fname: "Greg", lname: "Hogan", province: "SK", age: 55 },
+  { fname: "Harpreet", lname: "Ramsey", province: "MN", age: 18 },
+  { fname: "Ian", lname: "Fitzgerald", province: "BC", age: 16 },
+  { fname: "James", lname: "Kramer", province: "AB", age: 57 },
+  { fname: "Jarvis", lname: "Ortega", province: "SK", age: 69 },
+  { fname: "Jawad", lname: "Huerta", province: "MN", age: 35 },
+  { fname: "Jinbong", lname: "Robinson", province: "BC", age: 26 },
+  { fname: "Jingnan", lname: "Hatfield", province: "AB", age: 71 },
+  { fname: "Joe", lname: "Banks", province: "SK", age: 37 },
+  { fname: "Kristina", lname: "Dalton", province: "MN", age: 73 },
+  { fname: "Latora", lname: "Matthews", province: "BC", age: 25 },
+  { fname: "Lauren", lname: "McClure", province: "AB", age: 42 },
+  { fname: "Licedt", lname: "Rasmussen", province: "SK", age: 30 },
+  { fname: "Linden", lname: "Pierce", province: "MN", age: 68 },
+  { fname: "Luis", lname: "Price", province: "BC", age: 23 },
+  { fname: "Marcela", lname: "Perez", province: "AB", age: 20 },
+  { fname: "Marilou", lname: "Graham", province: "SK", age: 32 },
+  { fname: "Matt", lname: "Novak", province: "MN", age: 29 },
+  { fname: "Monica", lname: "Giles", province: "BC", age: 34 },
+  { fname: "Niloufar", lname: "Carson", province: "AB", age: 29 },
+  { fname: "Omar", lname: "Olson", province: "SK", age: 69 },
+  { fname: "Roger", lname: "Woodard", province: "MN", age: 84 },
+  { fname: "Roman", lname: "Swanson", province: "BC", age: 21 },
+  { fname: "Seun", lname: "Kelly", province: "AB", age: 60 },
+  { fname: "Shane", lname: "Frost", province: "SK", age: 87 },
+  { fname: "Steven", lname: "Haynes", province: "MN", age: 47 },
+  { fname: "Thomas", lname: "Hart", province: "BC", age: 14 },
+  { fname: "Trent", lname: "Kerr", province: "AB", age: 12 },
+  { fname: "Darrell", lname: "Koch", province: "SK", age: 10 },
+  { fname: "Tylor", lname: "Torres", province: "MN", age: 98 }
+];
+
+const callFunc = obj => {
+  return obj;
+};
+
+//Return people from BC or Alberta
+test("return people from BC or Alberta", () => {
+  expect(functions.onlyBcAb(people, callFunc)).toEqual([
+    { fname: "Alex", lname: "Smith", province: "BC", age: 33 },
+    { fname: "Angela", lname: "Jones", province: "AB", age: 61 },
+    { fname: "Byron", lname: "Cardenas", province: "BC", age: 38 },
+    { fname: "Carrie", lname: "Ramirez", province: "AB", age: 89 },
+    { fname: "Dustin", lname: "Bullock", province: "BC", age: 59 },
+    { fname: "Eva", lname: "Keiths", province: "AB", age: 24 },
+    { fname: "Forest", lname: "Vaughn", province: "BC", age: 52 },
+    { fname: "Giovanni", lname: "Browning", province: "AB", age: 32 },
+    { fname: "Ian", lname: "Fitzgerald", province: "BC", age: 16 },
+    { fname: "James", lname: "Kramer", province: "AB", age: 57 },
+    { fname: "Jinbong", lname: "Robinson", province: "BC", age: 26 },
+    { fname: "Jingnan", lname: "Hatfield", province: "AB", age: 71 },
+    { fname: "Latora", lname: "Matthews", province: "BC", age: 25 },
+    { fname: "Lauren", lname: "McClure", province: "AB", age: 42 },
+    { fname: "Luis", lname: "Price", province: "BC", age: 23 },
+    { fname: "Marcela", lname: "Perez", province: "AB", age: 20 },
+    { fname: "Monica", lname: "Giles", province: "BC", age: 34 },
+    { fname: "Niloufar", lname: "Carson", province: "AB", age: 29 },
+    { fname: "Roman", lname: "Swanson", province: "BC", age: 21 },
+    { fname: "Seun", lname: "Kelly", province: "AB", age: 60 },
+    { fname: "Thomas", lname: "Hart", province: "BC", age: 14 },
+    { fname: "Trent", lname: "Kerr", province: "AB", age: 12 }
+  ]);
+});
+
+//Create an array of full names
+test("return array of full names", () => {
+  let expectArr = [];
+  for (let i = 0; i < people.length; i++) {
+    expectArr.push(functions.fullNames(people[i]));
+  }
+  expect(expectArr).toEqual([
+    "Alex Smith",
+    "Angela Jones",
+    "Anne Bird",
+    "Brent Riddle",
+    "Byron Cardenas",
+    "Carrie Ramirez",
+    "Cheryl Glenn",
+    "Dima Curry",
+    "Dustin Bullock",
+    "Eva Keiths",
+    "Faith Liu",
+    "Fawad Bowman",
+    "Forest Vaughn",
+    "Giovanni Browning",
+    "Greg Hogan",
+    "Harpreet Ramsey",
+    "Ian Fitzgerald",
+    "James Kramer",
+    "Jarvis Ortega",
+    "Jawad Huerta",
+    "Jinbong Robinson",
+    "Jingnan Hatfield",
+    "Joe Banks",
+    "Kristina Dalton",
+    "Latora Matthews",
+    "Lauren McClure",
+    "Licedt Rasmussen",
+    "Linden Pierce",
+    "Luis Price",
+    "Marcela Perez",
+    "Marilou Graham",
+    "Matt Novak",
+    "Monica Giles",
+    "Niloufar Carson",
+    "Omar Olson",
+    "Roger Woodard",
+    "Roman Swanson",
+    "Seun Kelly",
+    "Shane Frost",
+    "Steven Haynes",
+    "Thomas Hart",
+    "Trent Kerr",
+    "Darrell Koch",
+    "Tylor Torres"
+  ]);
+});
+
+//Return an array with full names of people from AB or BC
+
+test("return array of full names from BC or AB", () => {
+  expect(functions.onlyBcAb(people, functions.fullNames)).toEqual([
+    "Alex Smith",
+    "Angela Jones",
+    "Byron Cardenas",
+    "Carrie Ramirez",
+    "Dustin Bullock",
+    "Eva Keiths",
+    "Forest Vaughn",
+    "Giovanni Browning",
+    "Ian Fitzgerald",
+    "James Kramer",
+    "Jinbong Robinson",
+    "Jingnan Hatfield",
+    "Latora Matthews",
+    "Lauren McClure",
+    "Luis Price",
+    "Marcela Perez",
+    "Monica Giles",
+    "Niloufar Carson",
+    "Roman Swanson",
+    "Seun Kelly",
+    "Thomas Hart",
+    "Trent Kerr"
+  ]);
+});
+
 const data = {
   staff: [
     { fname: "Jane", lname: "Smith", balance: 10 },
@@ -119,9 +282,9 @@ test("Check filter", () => {
 
 //sort
 test("Check sort", () => {
-  expect(functions.examSort(["Smith", "Johnson", "Williams", "Jones"])).toEqual(
-    ["Johnson", "Jones", "Smith", "Williams"]
-  );
+  expect(
+    functions.examSort(["Smith", "Johnson", "Williams", "Jones"])
+  ).toEqual(["Johnson", "Jones", "Smith", "Williams"]);
 });
 
 //----------------------------------------------------
