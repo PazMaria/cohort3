@@ -1,5 +1,6 @@
 class City {
-  constructor(name, latitude, longitude, population) {
+  constructor(key, name, latitude, longitude, population) {
+    this.key = key;
     this.name = name;
     this.latitude = latitude;
     this.longitude = longitude;
@@ -44,32 +45,32 @@ class Community {
     this.cities = [];
   }
 
-  createCity(name, lat, long, pop) {
+  createCity(key, name, lat, long, pop) {
     let message;
     if (this.cities.length === 0) {
-      const newCity = new City(name, lat, long, pop);
+      const newCity = new City(key, name, lat, long, pop);
       this.cities.push(newCity);
       message = "City created";
     } else {
       this.cities.forEach(function(element) {
-        if (element.name === name) {
-          message = "City Exists";
+        if (element.latitude === lat && element.longitude === long) {
+          message = "City already entered";
         } else {
           message = "City created";
         }
       });
       if (message === "City created") {
-        const newCity = new City(name, lat, long, pop);
+        const newCity = new City(key, name, lat, long, pop);
         this.cities.push(newCity);
       }
     }
     return message;
   }
 
-  deleteCity(city) {
+  deleteCity(cityKey) {
     let cityToRemove;
     this.cities.forEach(function(element) {
-      if (element.name === city) {
+      if (element.key === cityKey) {
         cityToRemove = element;
       }
     });
@@ -115,4 +116,46 @@ class Community {
   }
 }
 
-export { City, Community };
+const functions = {
+  keyId: 0,
+
+  newCityDiv: (node, cName, aValue) => {
+    functions.keyId++;
+    const newCard = document.createElement("div");
+
+    node.appendChild(newCard);
+    newCard.className = "card";
+    newCard.setAttribute("cityId", functions.keyId);
+    const name = document.createElement("span");
+    const amount = document.createElement("input");
+    const moveIn = document.createElement("input");
+    const moveOut = document.createElement("input");
+    const del = document.createElement("input");
+    name.textContent = cName;
+    amount.setAttribute("type", "number");
+    amount.setAttribute("id", "idAmount");
+
+    moveIn.setAttribute("type", "button");
+    moveIn.setAttribute("value", "Move In");
+    moveIn.setAttribute("id", "idMoveIn");
+    moveOut.setAttribute("type", "button");
+    moveOut.setAttribute("value", "Move Out");
+    moveOut.setAttribute("id", "idMoveOut");
+    del.setAttribute("type", "button");
+    del.setAttribute("value", "Delete City");
+    del.setAttribute("id", "idDel");
+
+    newCard.appendChild(name);
+    newCard.appendChild(amount);
+    newCard.appendChild(moveIn);
+    newCard.appendChild(moveOut);
+    newCard.appendChild(del);
+    console.log(functions.keyId);
+    return newCard;
+  },
+  delCityDiv: card => {
+    card.remove();
+  }
+};
+
+export { City, Community, functions };
