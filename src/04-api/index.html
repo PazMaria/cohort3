@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Cities and Communities</title>
+    <link rel="stylesheet" href="swiper.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="idHome">
+      <h1>Cities</h1>
+    </div>
+    <div id="bigDiv">
+      <div class="container" id="idContainer">
+        <div></div>
+        <div id="idMsg"></div>
+
+        <div id="leftDiv">
+          City Name:
+          <input id="idName" type="text" /><br />
+          Latitude:
+          <input id="idLat" type="number" />
+          Longitude:
+          <input id="idLong" type="number" />
+          Population:
+          <input id="idPop" type="number" />
+          <input id="idNewCity" type="button" value="Add City" />
+        </div>
+
+        <div class="cardContain" id="rightDiv"></div>
+      </div>
+
+      <div class="main" id="idMain">
+        <div class="swiper-container">
+          <div class="swiper-wrapper" id="idWrapper"></div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./scripts/main.js"></script>
+    <script src="./scripts/swiper.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".swiper-container", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+          rotate: 30,
+          stretch: 0,
+          depth: 200,
+          modifier: 1,
+          slideShadows: true
+        },
+        pagination: {
+          el: ".swiper-pagination"
+        }
+      });
+    </script>
+  </body>
+</html>
