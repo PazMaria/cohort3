@@ -100,3 +100,14 @@ test("check deleteCity method", () => {
   city.deleteCity(1);
   expect(citiesLength).toEqual(citiesLength--);
 });
+
+test("130E-Create myCity", () => {
+  let myCity = new City(1, "Calgary", 51.0447, 114.0719, 1285711);
+  let myFav = myCity;
+  expect(myCity.Population).toEqual(myFav.Population);
+
+  myCity.movedIn(200);
+  expect(myCity.Population).toEqual(1285911);
+
+  expect(myCity.Population).toEqual(myFav.Population);
+});
