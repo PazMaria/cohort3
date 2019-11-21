@@ -104,6 +104,14 @@
 }
 /*-------------------------------------------*/
 /* Tic tac toe css */
+.gameDiv {
+  margin: auto;
+  width: 90%;
+  height: 80%;
+  border: 3px solid green;
+  padding: 10px;
+}
+
 ol,
 ul {
   padding-left: 30px;

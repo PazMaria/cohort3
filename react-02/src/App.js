@@ -101,7 +101,9 @@ class App extends React.Component {
       return (
         <div className="tictacDiv">
           <h4>Tic-Tac-Toe</h4>
-          <Game />;
+          <div className="gameDiv">
+            <Game />
+          </div>
         </div>
       );
     }
