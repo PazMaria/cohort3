@@ -1,4 +1,46 @@
 const functions = {
+  /* Daily exercise - November 22, 2019*/
+
+  //Anonymous function
+
+  anonyFunc: myArray => {
+    let newArr = myArray.sort(function(a, b) {
+      return a.num - b.num;
+    });
+    console.log("myArray = ", myArray);
+    return newArr;
+  },
+  namedFunc: myArray => {
+    let newArr = myArray.sort(function sortFunction(a, b) {
+      let fruit1 = a.str.toLowerCase();
+      let fruit2 = b.str.toLowerCase();
+      if (fruit1 < fruit2) {
+        return -1;
+      }
+      if (fruit1 > fruit2) {
+        return 1;
+      }
+      return 0;
+    });
+    console.log("myArray = ", myArray);
+    return newArr;
+  },
+  arrowFunc: myArray => {
+    let newArr = myArray.sort((a, b) => {
+      let fruit1 = a.origin.toLowerCase();
+      let fruit2 = b.origin.toLowerCase();
+      if (fruit1 < fruit2) {
+        return 1;
+      }
+      if (fruit1 > fruit2) {
+        return -1;
+      }
+      return 0;
+    });
+    console.log("myArray = ", myArray);
+    return newArr;
+  },
+
   /* Daily exercise - November 21, 2019*/
 
   //Callback exercise part 2

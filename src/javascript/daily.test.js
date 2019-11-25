@@ -1,6 +1,73 @@
 import functions from "./daily";
 
+/* Daily exercise - November 22, 2019*/
+
+let myArray = [
+  { num: 5, str: "apples", origin: "BC" },
+  { num: 7, str: "oranges", origin: "Florida" },
+  { num: 2, str: "lemons", origin: "Mexico" },
+  { num: 8, str: "bananas", origin: "Ecuador" },
+  { num: 6, str: "avocados", origin: "Mexico" },
+  { num: 4, str: "pineapple", origin: "Brazil" },
+  { num: 3, str: "blueberries", origin: "Chile" },
+  { num: 9, str: "pears", origin: "Oregon" },
+  { num: 1, str: "cantaloupe", origin: "California" }
+];
+//
+// Do the statements below 3 times, one for each type of function
+//
+// myArray.sort(.....enter code here
+// );
+// console.log("myArray = ", myArray);
+
+//Anonymous function that returns array sort by number ascending
+test("return array sort by number ascending", () => {
+  expect(functions.anonyFunc(myArray)).toEqual([
+    { num: 1, str: "cantaloupe", origin: "California" },
+    { num: 2, str: "lemons", origin: "Mexico" },
+    { num: 3, str: "blueberries", origin: "Chile" },
+    { num: 4, str: "pineapple", origin: "Brazil" },
+    { num: 5, str: "apples", origin: "BC" },
+    { num: 6, str: "avocados", origin: "Mexico" },
+    { num: 7, str: "oranges", origin: "Florida" },
+    { num: 8, str: "bananas", origin: "Ecuador" },
+    { num: 9, str: "pears", origin: "Oregon" }
+  ]);
+});
+//Named function that returns array sort by fruit name
+test("return array sort by fruit name", () => {
+  expect(functions.namedFunc(myArray)).toEqual([
+    { num: 5, str: "apples", origin: "BC" },
+    { num: 6, str: "avocados", origin: "Mexico" },
+    { num: 8, str: "bananas", origin: "Ecuador" },
+    { num: 3, str: "blueberries", origin: "Chile" },
+    { num: 1, str: "cantaloupe", origin: "California" },
+    { num: 2, str: "lemons", origin: "Mexico" },
+    { num: 7, str: "oranges", origin: "Florida" },
+    { num: 9, str: "pears", origin: "Oregon" },
+    { num: 4, str: "pineapple", origin: "Brazil" }
+  ]);
+});
+//Arrow function that returns array sort by origin in reverse order
+test("return array sort by origin in reverse", () => {
+  expect(functions.arrowFunc(myArray)).toEqual([
+    { num: 9, str: "pears", origin: "Oregon" },
+    { num: 6, str: "avocados", origin: "Mexico" },
+    { num: 2, str: "lemons", origin: "Mexico" },
+    { num: 7, str: "oranges", origin: "Florida" },
+    { num: 8, str: "bananas", origin: "Ecuador" },
+    { num: 3, str: "blueberries", origin: "Chile" },
+    { num: 1, str: "cantaloupe", origin: "California" },
+    { num: 4, str: "pineapple", origin: "Brazil" },
+    { num: 5, str: "apples", origin: "BC" }
+  ]);
+});
+
 /* Daily exercise - November 8, 2019*/
+const callFunc = obj => {
+  return obj;
+};
+
 const people = [
   { fname: "Alex", lname: "Smith", province: "BC", age: 33 },
   { fname: "Angela", lname: "Jones", province: "AB", age: 61 },
@@ -49,23 +116,12 @@ const people = [
 ];
 
 //Create a function that returns object  with totals
-// test("return object with total population, total age and average age", () => {
-//   let expectObj = functions.calculateTotal(
-//     functions.onlyBcAb(people, callFunc)
-//   );
-
-//   expect(expectObj).toEqual({ totalPop: 22, totalAge: 840, averageAge: 38 });
-// });
 
 test("return object with total population, total age and average age", () => {
   let expectObj = functions.calculateTotal(people);
 
   expect(expectObj).toEqual({ totalPop: 22, totalAge: 838, averageAge: 38 });
 });
-
-const callFunc = obj => {
-  return obj;
-};
 
 //Return people from BC or Alberta
 test("return people from BC or Alberta", () => {
