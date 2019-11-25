@@ -1,9 +1,25 @@
 const functions = {
+  /* Daily exercise - November 21, 2019*/
+
+  //Callback exercise part 2
+
+  calculateTotal: arr => {
+    let newArr = functions.onlyBcAb(arr);
+    let totPop = newArr.length;
+    let totAge = newArr.reduce(
+      (accumulator, person) => accumulator + person.age,
+      0
+    );
+    let aveAge = Number((totAge / totPop).toFixed(0));
+    let newObj = { totalPop: totPop, totalAge: totAge, averageAge: aveAge };
+    return newObj;
+  },
+
   /* Daily exercise - November 8, 2019*/
 
   //Callback for people from BC or Alberta
 
-  onlyBcAb: (arr, callback) => {
+  onlyBcAb: (arr, callback = obj => obj) => {
     let newArr = [];
     for (let i = 0; i < arr.length; i++) {
       if (arr[i].province === "AB" || arr[i].province === "BC") {

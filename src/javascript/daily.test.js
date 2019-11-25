@@ -48,6 +48,21 @@ const people = [
   { fname: "Tylor", lname: "Torres", province: "MN", age: 98 }
 ];
 
+//Create a function that returns object  with totals
+// test("return object with total population, total age and average age", () => {
+//   let expectObj = functions.calculateTotal(
+//     functions.onlyBcAb(people, callFunc)
+//   );
+
+//   expect(expectObj).toEqual({ totalPop: 22, totalAge: 840, averageAge: 38 });
+// });
+
+test("return object with total population, total age and average age", () => {
+  let expectObj = functions.calculateTotal(people);
+
+  expect(expectObj).toEqual({ totalPop: 22, totalAge: 838, averageAge: 38 });
+});
+
 const callFunc = obj => {
   return obj;
 };
