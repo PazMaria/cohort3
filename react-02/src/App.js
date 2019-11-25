@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
-import apple from "./apple.svg";
-import banana from "./banana.svg";
+import home from "./home.svg";
+import tictac from "./tictac.svg";
 import strawberry from "./strawberry.svg";
 import blender from "./blender.svg";
 import food from "./food.svg";
@@ -27,7 +27,7 @@ class App extends React.Component {
     return (
       <div className="iconsDiv">
         <img
-          src={apple}
+          src={home}
           className="icons"
           id="idApple"
           alt="appleLogo"
@@ -36,7 +36,7 @@ class App extends React.Component {
         />
 
         <img
-          src={banana}
+          src={tictac}
           className="icons"
           id="idBanana"
           alt="bananaLogo"
@@ -116,6 +116,12 @@ class App extends React.Component {
         {this.showIcons()}
         {newDiv}
         <div>{this.showApp()}</div>
+        <div>
+          Icons from{" "}
+          <a href="https://www.flaticon.com/" title="Flaticon">
+            www.flaticon.com
+          </a>
+        </div>
       </div>
     );
   }
