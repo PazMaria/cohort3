@@ -2,10 +2,10 @@ import React from "react";
 import logo from "./logo.svg";
 import home from "./home.svg";
 import tictac from "./tictac.svg";
-import strawberry from "./strawberry.svg";
-import blender from "./blender.svg";
-import food from "./food.svg";
+import bank from "./bank.svg";
+import city from "./city.svg";
 import Game from "./components/Game";
+import Account from "./components/Accounts";
 import "./App.css";
 
 class App extends React.Component {
@@ -44,27 +44,19 @@ class App extends React.Component {
           onClick={e => this.onPushMe(e.target.name)}
         />
         <img
-          src={strawberry}
+          src={bank}
           className="icons"
           id="idStraw"
           alt="strawberryLogo"
-          name="strawberry"
+          name="accountApp"
           onClick={e => this.onPushMe(e.target.name)}
         />
         <img
-          src={blender}
+          src={city}
           className="icons"
           id="idBlender"
           alt="blenderLogo"
           name="blender"
-          onClick={e => this.onPushMe(e.target.name)}
-        />
-        <img
-          src={food}
-          className="icons"
-          id="idFood"
-          alt="foodLogo"
-          name="food"
           onClick={e => this.onPushMe(e.target.name)}
         />
       </div>
@@ -72,12 +64,7 @@ class App extends React.Component {
   };
 
   showApp = () => {
-    if (
-      this.state.whoClicked === "mainApp" ||
-      this.state.whoClicked === "strawberry" ||
-      this.state.whoClicked === "blender" ||
-      this.state.whoClicked === "food"
-    ) {
+    if (this.state.whoClicked === "mainApp") {
       return (
         <div>
           <header className="App-header">
@@ -107,6 +94,16 @@ class App extends React.Component {
         </div>
       );
     }
+    if (this.state.whoClicked === "accountApp") {
+      return (
+        <div className="tictacDiv">
+          <h4>Accounts</h4>
+          <div className="gameDiv">
+            <Account />
+          </div>
+        </div>
+      );
+    }
   };
 
   render() {
@@ -116,12 +113,12 @@ class App extends React.Component {
         {this.showIcons()}
         {newDiv}
         <div>{this.showApp()}</div>
-        <div>
+        {/* <div>
           Icons from{" "}
           <a href="https://www.flaticon.com/" title="Flaticon">
             www.flaticon.com
           </a>
-        </div>
+        </div> */}
       </div>
     );
   }
