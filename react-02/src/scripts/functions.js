@@ -1,17 +1,16 @@
 class Account {
-  constructor(accountName, balance) {
+  constructor(key, accountName, balance) {
+    this.key = Number(key);
     this.accountName = accountName;
     this.balance = Number(balance);
   }
   deposit(amount) {
     this.balance = Number(this.balance) + Number(amount);
-    idAmount.value = "";
     return this.balance;
   }
 
   withdraw(amount) {
     this.balance = this.balance - amount;
-    idAmount.value = "";
     return this.balance;
   }
 
@@ -23,13 +22,14 @@ class Account {
 class AccountController {
   constructor() {
     this.userAccounts = [];
+    this.key = 0;
   }
 
   addAccount(accountName, balance) {
     let message;
-
+    this.key++;
     if (this.userAccounts.length === 0) {
-      const newAccount = new Account(accountName, balance);
+      const newAccount = new Account(this.key, accountName, balance);
       this.userAccounts.push(newAccount);
       message = "Account created";
     } else {
@@ -41,7 +41,7 @@ class AccountController {
         }
       });
       if (message === "Account created") {
-        const newAccount = new Account(accountName, balance);
+        const newAccount = new Account(this.key, accountName, balance);
         this.userAccounts.push(newAccount);
       }
     }
@@ -72,59 +72,15 @@ class AccountController {
     });
   }
 
-  maxBalance(arrayBalance) {
-    return Number(Math.max(...arrayBalance));
+  maxBalance() {
+    // return Number(Math.max(...arrayBalance));
+    return this.userAccounts.slice().sort((a, b) => b.balance - a.balance)[0];
   }
 
-  minBalance(arrayBalance) {
-    return Number(Math.min(...arrayBalance));
+  minBalance() {
+    // return Number(Math.min(...arrayBalance));
+    return this.userAccounts.slice().sort((a, b) => a.balance - b.balance)[0];
   }
 }
 
-const functions = {
-  accountId: 0,
-
-  newAccountDiv: (node, aName, aValue) => {
-    functions.accountId++;
-    const newCard = document.createElement("div");
-
-    node.appendChild(newCard);
-    newCard.className = "card";
-    newCard.setAttribute("accountId", functions.accountId);
-    const name = document.createElement("span");
-    const bal = document.createElement("span");
-    const amount = document.createElement("input");
-    const deposit = document.createElement("input");
-    const withdraw = document.createElement("input");
-    const del = document.createElement("input");
-
-    name.setAttribute("id", "name");
-    name.textContent = aName;
-    bal.setAttribute("id", "bal");
-    bal.textContent = Number(aValue);
-    amount.setAttribute("type", "number");
-    amount.setAttribute("id", "idAmount");
-    deposit.setAttribute("type", "button");
-    deposit.setAttribute("value", "Deposit");
-    deposit.setAttribute("id", "idDeposit");
-    withdraw.setAttribute("type", "button");
-    withdraw.setAttribute("value", "Withdraw");
-    withdraw.setAttribute("id", "idWithdraw");
-    del.setAttribute("type", "button");
-    del.setAttribute("value", "Delete Account");
-    del.setAttribute("id", "idDel");
-    newCard.appendChild(name);
-    newCard.appendChild(bal);
-    newCard.appendChild(amount);
-    newCard.appendChild(deposit);
-    newCard.appendChild(withdraw);
-    newCard.appendChild(del);
-
-    return newCard;
-  },
-  delAccountDiv: card => {
-    card.remove();
-  }
-};
-
-export { Account, AccountController, functions };
+export { Account, AccountController };

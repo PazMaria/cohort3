@@ -1,4 +1,4 @@
-import { AccountController, functions } from "./functions.js";
+import { AccountController, functions } from "../components/NewAccount.js";
 
 const newAccount = new AccountController();
 

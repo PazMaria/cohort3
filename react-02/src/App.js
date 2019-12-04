@@ -56,7 +56,7 @@ class App extends React.Component {
           className="icons"
           id="idBlender"
           alt="blenderLogo"
-          name="blender"
+          name="cityApp"
           onClick={e => this.onPushMe(e.target.name)}
         />
       </div>
