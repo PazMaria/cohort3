@@ -15,8 +15,16 @@ class NewAccount extends React.Component {
   };
 
   handleDeposit = e => {
-    // e.preventDefault(e);
     this.props.account.deposit(this.state.inputAmount);
+    this.setState({
+      inputAmount: ""
+    });
+
+    this.props.calculate();
+  };
+
+  handleWithdraw = e => {
+    this.props.account.withdraw(this.state.inputAmount);
     this.setState({
       inputAmount: ""
     });
