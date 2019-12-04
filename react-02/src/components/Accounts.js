@@ -30,12 +30,12 @@ class Account extends React.Component {
       message: this.state.accExist
     });
     if (this.state.accExist === "Account created") {
-      await this.setState({
-        accName: "",
-        accAmount: ""
-      });
       this.calculate();
     }
+    await this.setState({
+      accName: "",
+      accAmount: ""
+    });
   }
 
   onChange = e => {
@@ -60,7 +60,13 @@ class Account extends React.Component {
 
   render() {
     let cards = this.newAccount.userAccounts.map(account => {
-      return <NewAccount key={account.key} account={account} />;
+      return (
+        <NewAccount
+          key={account.key}
+          account={account}
+          calculate={this.calculate}
+        />
+      );
     });
     return (
       <div className="container" id="idContainer">
