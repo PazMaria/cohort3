@@ -21,8 +21,8 @@ class Account extends React.Component {
     this.onChange = this.onChange.bind(this);
   }
 
-  handleClick(e) {
-    this.setState({
+  async handleClick(e) {
+    await this.setState({
       accExist: this.newAccount.addAccount(
         this.state.accName,
         this.state.accAmount
@@ -30,13 +30,12 @@ class Account extends React.Component {
       message: this.state.accExist
     });
     if (this.state.accExist === "Account created") {
-      this.setState({
+      await this.setState({
         accName: "",
         accAmount: ""
       });
-      // this.calculate();
+      this.calculate();
     }
-    e.preventDefault(e);
   }
 
   onChange = e => {
@@ -45,21 +44,24 @@ class Account extends React.Component {
     });
   };
 
-  // calculate = () => {
-  //   const highestAcc = this.newAccount.maxBalance().name;
-  //   const lowestAcc = this.newAccount.minBalance().name;
+  calculate = () => {
+    const highestAcc = this.newAccount.maxBalance().accountName;
+    const lowestAcc = this.newAccount.minBalance().accountName;
+    const highestBal = this.newAccount.maxBalance().balance;
+    const lowestBal = this.newAccount.minBalance().balance;
 
-  //   this.setState({
-  //     highAcc: highestAcc,
-  //     lowAcc: lowestAcc
-  //   });
-  // };
+    this.setState({
+      highAcc: highestAcc,
+      lowAcc: lowestAcc,
+      highBal: highestBal,
+      lowBal: lowestBal
+    });
+  };
 
   render() {
     let cards = this.newAccount.userAccounts.map(account => {
       return <NewAccount key={account.key} account={account} />;
     });
-
     return (
       <div className="container" id="idContainer">
         <h5>New Account</h5>
@@ -93,13 +95,19 @@ class Account extends React.Component {
             />
           </div>
           <div className="balance" id="bottomDiv">
-            <div className="result" id="highestDiv">
+            <div id="highestDiv">
               Highest Balance Account: <br />
-              {/* <div id="idShowHighestDiv">{this.state.highAcc}</div> */}
+              <div className="result" id="idShowHighestDiv">
+                <span> {this.state.highAcc}</span>
+                <span>{this.state.highBal}</span>
+              </div>
             </div>
-            <div className="result" id="lowestDiv">
+            <div id="lowestDiv">
               Lowest Balance Account: <br />
-              {/* <div id="idShowLowestDiv">{this.state.lowAcc}</div> */}
+              <div className="result" id="idShowLowestDiv">
+                <span>{this.state.lowAcc}</span>
+                <span>{this.state.lowBal}</span>
+              </div>
             </div>
           </div>
         </div>

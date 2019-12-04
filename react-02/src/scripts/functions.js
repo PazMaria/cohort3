@@ -75,6 +75,8 @@ class AccountController {
   maxBalance() {
     // return Number(Math.max(...arrayBalance));
     return this.userAccounts.slice().sort((a, b) => b.balance - a.balance)[0];
+    // const copy = this.userAccounts.slice();
+    // return copy.sort((a, b) => b.balance - a.balance)[0];
   }
 
   minBalance() {
