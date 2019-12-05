@@ -1,7 +1,7 @@
 import React from "react";
 import "../../src/accounts.css";
-import NewAccount from "./NewAccount.js";
-import { AccountController, functions } from "../scripts/functions";
+import NewAccount from "./NewAccount.js/index.js";
+import { AccountController, functions } from "./scripts/functions";
 
 class Account extends React.Component {
   constructor(props) {

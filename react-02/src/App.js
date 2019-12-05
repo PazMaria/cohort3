@@ -4,8 +4,8 @@ import home from "./home.svg";
 import tictac from "./tictac.svg";
 import bank from "./bank.svg";
 import city from "./city.svg";
-import Game from "./components/Game";
-import Account from "./components/Accounts";
+import Game from "./components/tictactoe/Game";
+import Account from "./components/accounts/Accounts";
 import "./App.css";
 
 class App extends React.Component {
