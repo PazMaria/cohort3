@@ -49,13 +49,16 @@ class AccountController {
   }
 
   removeAccount(accountName) {
-    let itemToRemove;
-    this.userAccounts.forEach(function(element) {
-      if (element.accountName === accountName) {
-        itemToRemove = element;
-      }
-    });
-    this.userAccounts.splice(this.userAccounts.indexOf(itemToRemove), 1);
+    // let itemToRemove;
+    // this.userAccounts.forEach(function(element) {
+    //   if (element.accountName === accountName) {
+    //     itemToRemove = element;
+    //   }
+    // });
+    // this.userAccounts.splice(this.userAccounts.indexOf(itemToRemove), 1);
+    this.userAccounts = this.userAccounts.filter(
+      account => account.accountName !== accountName
+    );
   }
 
   totalBalance() {
@@ -66,21 +69,11 @@ class AccountController {
     return totalBalance;
   }
 
-  mapObject() {
-    return this.userAccounts.map(function(user) {
-      return user.balance;
-    });
-  }
-
   maxBalance() {
-    // return Number(Math.max(...arrayBalance));
     return this.userAccounts.slice().sort((a, b) => b.balance - a.balance)[0];
-    // const copy = this.userAccounts.slice();
-    // return copy.sort((a, b) => b.balance - a.balance)[0];
   }
 
   minBalance() {
-    // return Number(Math.min(...arrayBalance));
     return this.userAccounts.slice().sort((a, b) => a.balance - b.balance)[0];
   }
 }

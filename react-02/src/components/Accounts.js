@@ -45,16 +45,33 @@ class Account extends React.Component {
   };
 
   calculate = () => {
-    const highestAcc = this.newAccount.maxBalance().accountName;
-    const lowestAcc = this.newAccount.minBalance().accountName;
-    const highestBal = this.newAccount.maxBalance().balance;
-    const lowestBal = this.newAccount.minBalance().balance;
+    if (this.newAccount.userAccounts.length > 0) {
+      const highestAcc = this.newAccount.maxBalance().accountName;
+      const lowestAcc = this.newAccount.minBalance().accountName;
+      const highestBal = this.newAccount.maxBalance().balance;
+      const lowestBal = this.newAccount.minBalance().balance;
 
+      this.setState({
+        highAcc: highestAcc,
+        lowAcc: lowestAcc,
+        highBal: highestBal,
+        lowBal: lowestBal
+      });
+    } else {
+      this.setState({
+        highAcc: "",
+        lowAcc: "",
+        highBal: 0,
+        lowBal: 0
+      });
+    }
+  };
+
+  handleDelete = accountToDel => {
+    this.newAccount.removeAccount(accountToDel);
+    this.calculate();
     this.setState({
-      highAcc: highestAcc,
-      lowAcc: lowestAcc,
-      highBal: highestBal,
-      lowBal: lowestBal
+      accExist: ""
     });
   };
 
@@ -65,6 +82,7 @@ class Account extends React.Component {
           key={account.key}
           account={account}
           calculate={this.calculate}
+          handleDelete={this.handleDelete}
         />
       );
     });
