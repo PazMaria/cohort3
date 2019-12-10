@@ -6,6 +6,7 @@ import bank from "./bank.svg";
 import city from "./city.svg";
 import Game from "./components/tictactoe/Game";
 import Account from "./components/accounts/Accounts";
+import City from "./components/cities/Cities";
 import "./App.css";
 
 class App extends React.Component {
@@ -30,7 +31,7 @@ class App extends React.Component {
           src={home}
           className="icons"
           id="idApple"
-          alt="appleLogo"
+          alt="homeLogo"
           name="mainApp"
           onClick={e => this.onPushMe(e.target.name)}
         />
@@ -39,7 +40,7 @@ class App extends React.Component {
           src={tictac}
           className="icons"
           id="idBanana"
-          alt="bananaLogo"
+          alt="tictacLogo"
           name="titactoeApp"
           onClick={e => this.onPushMe(e.target.name)}
         />
@@ -47,7 +48,7 @@ class App extends React.Component {
           src={bank}
           className="icons"
           id="idStraw"
-          alt="strawberryLogo"
+          alt="accountLogo"
           name="accountApp"
           onClick={e => this.onPushMe(e.target.name)}
         />
@@ -55,7 +56,7 @@ class App extends React.Component {
           src={city}
           className="icons"
           id="idBlender"
-          alt="blenderLogo"
+          alt="cityLogo"
           name="cityApp"
           onClick={e => this.onPushMe(e.target.name)}
         />
@@ -100,6 +101,16 @@ class App extends React.Component {
           <h4>Accounts</h4>
           <div className="gameDiv">
             <Account />
+          </div>
+        </div>
+      );
+    }
+    if (this.state.whoClicked === "cityApp") {
+      return (
+        <div className="tictacDiv">
+          <h4>Cities</h4>
+          <div className="gameDiv">
+            <City />
           </div>
         </div>
       );

@@ -45,7 +45,7 @@ body {
 .container {
   margin: 10px;
   padding: 10px;
-  background-color: #88bdbc;
+  /* background-color: #88bdbc; */
   height: 95vh;
   display: grid;
   grid-template-columns: 1fr 1fr;

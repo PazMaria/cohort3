@@ -1,5 +1,5 @@
 import React from "react";
-import Board from "./Board.js.js";
+import Board from "./Board.js";
 
 class Game extends React.Component {
   constructor(props) {
