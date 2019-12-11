@@ -46,6 +46,7 @@ body {
 }
 
 .cardContain {
+  /* display: grid; */
   overflow-x: auto;
   margin: 0;
   padding: 0;
@@ -54,6 +55,7 @@ body {
   align-items: center;
   background-image: url("./components/cities/images/world.jpg");
   background-size: cover;
+  justify-content: space-around;
 }
 
 #idMsg {
@@ -61,41 +63,41 @@ body {
   color: white;
 }
 
-/* .card {
-  position: relative;
-  background: rgb(248, 248, 215);
-  width: 500px;
-  height: 500px;
-  margin: 0 auto;
-}
-.content {
-  font-size: 1.2em;
+.cityCard {
+  display: grid;
+  background-color: white;
+  box-shadow: 13px 10px 7px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  opacity: 0.9;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-row-gap: 20px;
+  grid-column-gap: 50px;
+  padding: 10px;
 }
 
-.card .content {
-  width: 500px;
-  padding: 30px;
-  box-sizing: border-box;
-} */
-/* .card .sliderText {
-  position: relative;
-  width: 500px;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgb(46, 28, 66);
+.moveIn,
+.moveOut {
+  width: 180px;
+  height: 25px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.3);
+  font-size: 1.2rem;
+  background-color: #6e6658;
+  color: white;
 }
-.card .sliderText h3 {
-  color: #fff;
-  font-size: 3em;
-}
-.swiper-slide {
-  width: 500px;
-} */
 
-/* .moveIn,
-.moveOut,
+.delete {
+  width: 180px;
+  height: 25px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.3);
+  font-size: 1.2rem;
+  background-color: #112d32;
+  color: white;
+}
+
+/*
 .Del,
 #mostNorthern,
 #mostSouthern,

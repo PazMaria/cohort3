@@ -28,6 +28,9 @@ class Cities extends React.Component {
         message: errorMessage
       });
     } else {
+      this.setState({
+        cityExist: ""
+      });
       if (this.city.cities.length > 0) {
         newKey = this.city.cities[this.city.cities.length - 1].key;
       } else {
@@ -40,7 +43,7 @@ class Cities extends React.Component {
 
   renderCities = () => {
     return this.city.cities.map(city => {
-      return <City key={city.key} city={city} />;
+      return <City key={city.key} city={city} deleteCity={this.deleteCity} />;
     });
   };
 
@@ -59,8 +62,8 @@ class Cities extends React.Component {
         this.state.cLat,
         this.state.cLong,
         this.state.cPop
-      )
-      //   message: this.state.cityExist
+      ),
+      message: this.state.cityExist
     });
 
     if (this.state.cityExist === "City created") {
@@ -68,29 +71,15 @@ class Cities extends React.Component {
         this.city.cities[this.city.cities.length - 1]
       );
       if (errorMessage === "Error from server") {
-        //   idMsg.textContent = errorMessage;
+        this.setState({
+          message: errorMessage
+        });
         this.city.deleteCity(newKey);
         newKey--;
-      } else {
-        //   functions.newCityDiv(
-        //       newKey,
-        //       idWrapper,
-        //       idName.value,
-        //       Number(idLat.value),
-        //       Number(idLong.value),
-        //       Number(idPop.value)
-        //   );
-        //   if (!rightDiv.hasChildNodes()) {
-        //       functions.calculationsDiv();
-        //   }
-        // idName.value = "";
-        // idLat.value = "";
-        // idLong.value = "";
-        // idPop.value = "";
       }
     } else {
       newKey--;
-      //   idMsg.textContent = cityExist;
+      this.setState({ message: this.state.cityExist });
     }
     this.setState({
       cName: "",
@@ -98,6 +87,20 @@ class Cities extends React.Component {
       cLong: "",
       cPop: ""
     });
+  };
+
+  deleteCity = async cityToDel => {
+    const errorMessage = await apiFunctions.deleteCity(cityToDel);
+    if (errorMessage) {
+      this.setState({
+        message: errorMessage
+      });
+    } else {
+      this.city.deleteCity(cityToDel);
+      this.setState({
+        cityExist: ""
+      });
+    }
   };
 
   render() {
@@ -140,7 +143,7 @@ class Cities extends React.Component {
             onClick={this.addCity}
           />
         </div>
-        <div id="idMsg">Message</div>
+        <div id="idMsg">{this.state.message}</div>
         <div className="cardContain" id="bottomDiv">
           {this.renderCities()}
         </div>

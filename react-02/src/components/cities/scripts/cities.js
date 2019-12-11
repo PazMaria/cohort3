@@ -68,7 +68,6 @@ class Community {
   }
 
   deleteCity(ckey) {
-    let cityToRemove;
     this.cities = this.cities.filter(city => city.key !== ckey);
   }
 

@@ -48,7 +48,6 @@ class NewAccount extends React.Component {
           type="button"
           value="Delete Account"
           id="idDel"
-          // onClick={this.props.handleDelete(this.props.account.accountName)}
           onClick={() =>
             this.props.handleDelete(this.props.account.accountName)
           }

@@ -10,15 +10,20 @@ class City extends React.Component {
 
   render() {
     return (
-      <div className="card">
+      <div className="cityCard">
         <span id="name">{this.props.city.Name}</span>
-        <span id="latitude">{this.props.city.Latitude}</span>
-        <span id="longitude">{this.props.city.Longitude}</span>
-        <span id="population">{this.props.city.Population}</span>
+        <span id="latitude">Latitude: {this.props.city.Latitude}</span>
+        <span id="longitude">Longitude: {this.props.city.Longitude}</span>
+        <span id="population">Population: {this.props.city.Population}</span>
         <input type="number" id="idAmount" />
-        <input type="button" value="Move In" />
-        <input type="button" value="Delete City" />
-        <input type="button" value="Move Out" />
+        <input className="moveIn" type="button" value="Move In" />
+        <input
+          className="delete"
+          type="button"
+          value="Delete City"
+          onClick={() => this.props.deleteCity(this.props.city.key)}
+        />
+        <input className="moveOut" type="button" value="Move Out" />
       </div>
     );
   }
