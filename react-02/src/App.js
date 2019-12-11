@@ -6,7 +6,7 @@ import bank from "./bank.svg";
 import city from "./city.svg";
 import Game from "./components/tictactoe/Game";
 import Account from "./components/accounts/Accounts";
-import City from "./components/cities/Cities";
+import Cities from "./components/cities/Cities";
 import "./App.css";
 
 class App extends React.Component {
@@ -110,7 +110,7 @@ class App extends React.Component {
         <div className="tictacDiv">
           <h4>Cities</h4>
           <div className="gameDiv">
-            <City />
+            <Cities />
           </div>
         </div>
       );

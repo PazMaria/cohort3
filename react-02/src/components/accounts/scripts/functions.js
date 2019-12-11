@@ -49,13 +49,6 @@ class AccountController {
   }
 
   removeAccount(accountName) {
-    // let itemToRemove;
-    // this.userAccounts.forEach(function(element) {
-    //   if (element.accountName === accountName) {
-    //     itemToRemove = element;
-    //   }
-    // });
-    // this.userAccounts.splice(this.userAccounts.indexOf(itemToRemove), 1);
     this.userAccounts = this.userAccounts.filter(
       account => account.accountName !== accountName
     );
