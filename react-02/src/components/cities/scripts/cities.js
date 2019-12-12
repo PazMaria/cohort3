@@ -4,7 +4,7 @@ class City {
     this.Name = name;
     this.Latitude = latitude;
     this.Longitude = longitude;
-    this.Population = population;
+    this.Population = Number(population);
   }
 
   show() {
@@ -105,64 +105,6 @@ class Community {
 }
 
 const functions = {
-  //   newCityDiv: (keyId, node, cName, cLat, cLong, cPop) => {
-  //     const newCard = document.createElement("div");
-  //     newCard.setAttribute("cityId", keyId);
-  //     newCard.className = "swiper-slide";
-  //     const card = document.createElement("div");
-  //     card.className = "card";
-  //     const slider = document.createElement("div");
-  //     slider.className = "sliderText";
-  //     const cardName = document.createElement("h3");
-  //     cardName.textContent = cName;
-  //     const content = document.createElement("div");
-  //     content.className = "content";
-  //     const textLat = document.createElement("p");
-  //     textLat.textContent = `Latitude: ${cLat}`;
-  //     const textLon = document.createElement("p");
-  //     textLon.textContent = `Longitude: ${cLong}`;
-  //     const textPop = document.createElement("p");
-  //     textPop.textContent = `Population: ${cPop}`;
-
-  //     const buttDiv = document.createElement("div");
-  //     const amount = document.createElement("input");
-  //     const moveIn = document.createElement("input");
-  //     const moveOut = document.createElement("input");
-  //     const del = document.createElement("input");
-  //     let messageDiv = document.createElement("div");
-  //     messageDiv.id = "messageDiv";
-
-  //     amount.type = "Number";
-  //     amount.id = "idAmount";
-  //     moveIn.setAttribute("type", "button");
-  //     moveIn.setAttribute("value", "Move In");
-  //     moveIn.className = "moveIn";
-  //     moveOut.setAttribute("type", "button");
-  //     moveOut.setAttribute("value", "Move Out");
-  //     moveOut.className = "moveOut";
-  //     del.setAttribute("type", "button");
-  //     del.setAttribute("value", "Delete City");
-  //     del.className = "Del";
-
-  //     newCard.appendChild(card);
-  //     card.appendChild(slider);
-  //     slider.appendChild(cardName);
-  //     card.appendChild(content);
-  //     content.appendChild(textLat);
-  //     content.appendChild(textLon);
-  //     content.appendChild(textPop);
-  //     content.appendChild(buttDiv);
-
-  //     buttDiv.appendChild(amount);
-  //     buttDiv.appendChild(moveIn);
-  //     buttDiv.appendChild(moveOut);
-  //     buttDiv.appendChild(del);
-  //     content.appendChild(messageDiv);
-
-  //     node.appendChild(newCard);
-
-  //     return newCard;
-  //   },
   delCityDiv: card => {
     card.remove();
   }

@@ -11,9 +11,9 @@ class Cities extends React.Component {
     super(props);
     this.state = {
       cName: "",
-      cLat: "",
-      cLong: "",
-      cPop: "",
+      cLat: 0,
+      cLong: 0,
+      cPop: 0,
       cityExist: "",
       message: ""
     };
@@ -83,9 +83,9 @@ class Cities extends React.Component {
     }
     this.setState({
       cName: "",
-      cLat: "",
-      cLong: "",
-      cPop: ""
+      cLat: 0,
+      cLong: 0,
+      cPop: 0
     });
   };
 
