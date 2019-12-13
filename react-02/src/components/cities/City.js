@@ -20,13 +20,20 @@ class City extends React.Component {
     const errorMessage = await apiFunctions.updateCity(this.props.city);
     if (errorMessage) {
       this.props.city.movedOut(Number(this.state.inputPop));
-    } else {
-      //   messageDiv.textContent = `${Number(
-      //       event.target.parentNode.children[0].value
-      //   )} people moved into ${selectedCity.Name}`;
-      //   event.target.parentNode.parentNode.children[2].textContent = `Population: ${selectedCity.Population}`;
     }
+    this.setState({
+      inputPop: 0
+    });
 
+    // this.props.calculate();
+  };
+
+  handleMoveOut = async () => {
+    this.props.city.movedOut(Number(this.state.inputPop));
+    const errorMessage = await apiFunctions.updateCity(this.props.city);
+    if (errorMessage) {
+      this.props.city.movedIn(Number(this.state.inputPop));
+    }
     this.setState({
       inputPop: 0
     });
@@ -54,7 +61,12 @@ class City extends React.Component {
           value="Delete City"
           onClick={() => this.props.deleteCity(this.props.city.key)}
         />
-        <input className="moveOut" type="button" value="Move Out" />
+        <input
+          className="moveOut"
+          type="button"
+          value="Move Out"
+          onClick={this.handleMoveOut}
+        />
       </div>
     );
   }
