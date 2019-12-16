@@ -15,7 +15,10 @@ class Cities extends React.Component {
       cLong: 0,
       cPop: 0,
       cityExist: "",
-      message: ""
+      message: "",
+      mostNorth: "",
+      mostSouth: "",
+      totPop: 0
     };
 
     this.city = new Community();
@@ -33,6 +36,7 @@ class Cities extends React.Component {
       });
       if (this.city.cities.length > 0) {
         newKey = this.city.cities[this.city.cities.length - 1].key;
+        this.calculationsDiv();
       } else {
         this.setState({
           message: "Server database is empty."
@@ -43,8 +47,35 @@ class Cities extends React.Component {
 
   renderCities = () => {
     return this.city.cities.map(city => {
-      return <City key={city.key} city={city} deleteCity={this.deleteCity} />;
+      return (
+        <City
+          key={city.key}
+          city={city}
+          deleteCity={this.deleteCity}
+          calculations={this.calculationsDiv}
+        />
+      );
     });
+  };
+
+  calculationsDiv = () => {
+    if (this.city.cities.length > 0) {
+      const mostNorthern = this.city.getMostNorthern().Name;
+      const mostSouthern = this.city.getMostSouthern().Name;
+      const totalPopulation = this.city.getPopulation();
+
+      this.setState({
+        mostNorth: mostNorthern,
+        mostSouth: mostSouthern,
+        totPop: totalPopulation
+      });
+    } else {
+      this.setState({
+        mostNorth: "",
+        mostSouth: "",
+        totPop: 0
+      });
+    }
   };
 
   onChange = e => {
@@ -76,6 +107,8 @@ class Cities extends React.Component {
         });
         this.city.deleteCity(newKey);
         newKey--;
+      } else {
+        this.calculationsDiv();
       }
     } else {
       newKey--;
@@ -100,6 +133,7 @@ class Cities extends React.Component {
       this.setState({
         cityExist: ""
       });
+      this.calculationsDiv();
     }
   };
 
@@ -144,6 +178,11 @@ class Cities extends React.Component {
           />
         </div>
         <div id="idMsg">{this.state.message}</div>
+        <div className="calculationDiv">
+          <span>Most Northern: {this.state.mostNorth}</span>
+          <span>Most Southern: {this.state.mostSouth}</span>
+          <span> Total Population:{this.state.totPop}</span>
+        </div>
         <div className="cardContain" id="bottomDiv">
           {this.renderCities()}
         </div>

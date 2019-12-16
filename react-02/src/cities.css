@@ -21,7 +21,7 @@ body {
   display: grid;
   /* grid-gap: 20px;
   grid-row-gap: 0px; */
-  grid-template-rows: 50px 20px auto;
+  grid-template-rows: 50px 20px 50px auto;
 }
 
 #idNewCity {
@@ -94,6 +94,13 @@ body {
   box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.3);
   font-size: 1.2rem;
   background-color: #112d32;
+  color: white;
+}
+
+.calculationDiv {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 50px;
   color: white;
 }
 
