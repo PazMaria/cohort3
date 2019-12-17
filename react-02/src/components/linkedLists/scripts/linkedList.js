@@ -13,13 +13,12 @@ class ListNode {
 class LinkedList {
   constructor() {
     this.head = null;
-    this.position = 0;
+    this.current = null;
   }
 
   insertNode(subject, amount) {
-    this.position++;
     const newNode = new ListNode(subject, amount);
-    newNode.position = this.position;
+    this.current = newNode;
     if (this.head === null) {
       this.head = newNode;
       return this.head;
@@ -33,8 +32,25 @@ class LinkedList {
     }
   }
 
+  // deleteNode(subject) {
+  //   let nodeToDelete = this.head;
+  //   let next = this.head.forwardNode;
+  //   while (nodeToDelete.forwardNode !== null) {
+  //     if (nodeToDelete.subject === subject) {
+  //       this.head = this.head.forwardNode;
+  //     }
+  //     nodeToDelete = nodeToDelete.forwardNode;
+  //     next = next.forwardNode;
+  //   }
+  //   if (nodeToDelete.subject === subject) {
+  //     this.head = null;
+  //   } else {
+  //     return "Subject not found";
+  //   }
+  // }
+
   firstPosition() {
-    return `${this.head.subject} Position: ${this.head.position}`;
+    return `First position: ${this.head.subject}`;
   }
 
   lastPosition() {
@@ -45,7 +61,7 @@ class LinkedList {
       while (lastNode.forwardNode !== null) {
         lastNode = lastNode.forwardNode;
       }
-      return `${lastNode.subject} Position: ${lastNode.position}`;
+      return `Last position: ${lastNode.subject}`;
     }
   }
 }

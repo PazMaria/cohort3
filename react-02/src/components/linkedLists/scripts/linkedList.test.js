@@ -13,16 +13,24 @@ test("insert node", () => {
   expect(link.head.forwardNode.subject).toBe("Potatoes");
 });
 
+// test("delete node", () => {
+//   const link = new LinkedList();
+//   link.insertNode("Apples", 5);
+//   link.insertNode("Potatoes", 6);
+//   link.deleteNode("Apples");
+//   expect(link.head.subject).toBe("Potatoes");
+// });
+
 test("check first position", () => {
   const link = new LinkedList();
   link.insertNode("Apples", 5);
   link.insertNode("Potatoes", 6);
-  expect(link.firstPosition()).toBe("Apples Position: 1");
+  expect(link.firstPosition()).toBe("First position: Apples");
 });
 
 test("check last position", () => {
   const link = new LinkedList();
   link.insertNode("Apples", 5);
   link.insertNode("Potatoes", 6);
-  expect(link.lastPosition()).toBe("Potatoes Position: 2");
+  expect(link.lastPosition()).toBe("Last position: Potatoes");
 });
