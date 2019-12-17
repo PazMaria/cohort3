@@ -19,12 +19,14 @@ class LinkedList {
     const newNode = new ListNode(subject, amount);
     if (this.head === null) {
       this.head = newNode;
+      return this.head;
     } else {
-      let current = this.head;
-      while (current.next !== null) {
-        current = current.next;
+      let lastNode = this.head;
+      while (lastNode.forwardNode !== null) {
+        lastNode = lastNode.forwardNode;
       }
-      current.next = newNode;
+      lastNode.forwardNode = newNode;
+      return this.head;
     }
   }
 }

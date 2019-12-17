@@ -9,4 +9,6 @@ test("insert node", () => {
   const link = new LinkedList();
   link.insertNode("Apples", 5);
   expect(link.head.subject).toBe("Apples");
+  link.insertNode("Potatoes", 6);
+  expect(link.head.forwardNode.subject).toBe("Potatoes");
 });
