@@ -1,8 +1,9 @@
 class ListNode {
-  constructor(subject, amount, forwardNode = null) {
+  constructor(subject, amount) {
     this.subject = subject;
     this.amount = amount;
-    this.forwardNode = forwardNode;
+    this.forwardNode = null;
+    this.prevNode = null;
   }
 
   show() {
@@ -21,14 +22,45 @@ class LinkedList {
     this.current = newNode;
     if (this.head === null) {
       this.head = newNode;
-      return this.head;
     } else {
       let lastNode = this.head;
       while (lastNode.forwardNode !== null) {
         lastNode = lastNode.forwardNode;
       }
       lastNode.forwardNode = newNode;
-      return this.head;
+      newNode.prevNode = lastNode;
+    }
+  }
+
+  firstPosition() {
+    return `First position: ${this.head.subject}`;
+  }
+
+  lastPosition() {
+    if (this.head === null) {
+      return "List is empty";
+    } else {
+      let lastNode = this.head;
+      while (lastNode.forwardNode !== null) {
+        lastNode = lastNode.forwardNode;
+      }
+      return `Last position: ${lastNode.subject}`;
+    }
+  }
+
+  nextNode(node) {
+    if (!node.forwardNode) {
+      return "This is the last node";
+    } else {
+      return node.forwardNode.subject;
+    }
+  }
+
+  previousNode(node) {
+    if (!node.prevNode) {
+      return "This is the first node";
+    } else {
+      return node.prevNode.subject;
     }
   }
 
@@ -48,22 +80,6 @@ class LinkedList {
   //     return "Subject not found";
   //   }
   // }
-
-  firstPosition() {
-    return `First position: ${this.head.subject}`;
-  }
-
-  lastPosition() {
-    if (this.head === null) {
-      return "List is empty";
-    } else {
-      let lastNode = this.head;
-      while (lastNode.forwardNode !== null) {
-        lastNode = lastNode.forwardNode;
-      }
-      return `Last position: ${lastNode.subject}`;
-    }
-  }
 }
 
 export { ListNode, LinkedList };
