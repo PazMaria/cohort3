@@ -17,22 +17,31 @@ class LinkedList {
     this.current = null;
   }
 
-  insertNode(subject, amount) {
+  insertNode(subject, amount, currentNode) {
     const newNode = new ListNode(subject, amount);
-    this.current = newNode;
     if (this.head === null) {
       this.head = newNode;
+      this.current = newNode;
+      return newNode;
     } else {
-      let lastNode = this.head;
-      while (lastNode.forwardNode !== null) {
-        lastNode = lastNode.forwardNode;
+      this.current = currentNode;
+      if (this.current.forwardNode === null) {
+        this.current.forwardNode = newNode;
+        newNode.forwardNode = null;
+        newNode.prevNode = this.current;
+        this.current = newNode;
+        return newNode;
       }
-      lastNode.forwardNode = newNode;
-      newNode.prevNode = lastNode;
+      newNode.forwardNode = this.current.forwardNode;
+      newNode.prevNode = this.current;
+      this.current.forwardNode = newNode;
+      this.current = newNode;
+      return newNode;
     }
   }
 
   firstPosition() {
+    this.current = this.head;
     return `First position: ${this.head.subject}`;
   }
 
@@ -44,6 +53,7 @@ class LinkedList {
       while (lastNode.forwardNode !== null) {
         lastNode = lastNode.forwardNode;
       }
+      this.current = lastNode;
       return `Last position: ${lastNode.subject}`;
     }
   }
@@ -52,6 +62,7 @@ class LinkedList {
     if (!node.forwardNode) {
       return "This is the last node";
     } else {
+      this.current = node.forwardNode;
       return node.forwardNode.subject;
     }
   }
@@ -60,26 +71,25 @@ class LinkedList {
     if (!node.prevNode) {
       return "This is the first node";
     } else {
+      this.current = node.prevNode;
       return node.prevNode.subject;
     }
   }
 
-  // deleteNode(subject) {
-  //   let nodeToDelete = this.head;
-  //   let next = this.head.forwardNode;
-  //   while (nodeToDelete.forwardNode !== null) {
-  //     if (nodeToDelete.subject === subject) {
-  //       this.head = this.head.forwardNode;
-  //     }
-  //     nodeToDelete = nodeToDelete.forwardNode;
-  //     next = next.forwardNode;
-  //   }
-  //   if (nodeToDelete.subject === subject) {
-  //     this.head = null;
-  //   } else {
-  //     return "Subject not found";
-  //   }
-  // }
+  deleteNode(node) {
+    if (node === this.head) {
+      this.head = this.head.forwardNode;
+      this.head.prevNode = null;
+      node = null;
+    } else {
+      if (node.forwardNode === null) {
+        node.prevNode.forwardNode = null;
+        node = null;
+      }
+      node.prevNode.forwardNode = node.forwardNode;
+      node.forwardNode.prevNode = node.prevNode;
+    }
+  }
 }
 
 export { ListNode, LinkedList };
