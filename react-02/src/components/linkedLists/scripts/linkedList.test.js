@@ -57,3 +57,12 @@ test("delete node", () => {
   link.deleteNode(node2);
   expect(node1.forwardNode.subject).toBe("Bananas");
 });
+
+test("get total amounts", () => {
+  const link = new LinkedList();
+  const node1 = link.insertNode("Apples", 5, null);
+  const node2 = link.insertNode("Potatoes", 6, node1);
+  const node3 = link.insertNode("Bananas", 6, node2);
+
+  expect(link.totalAmount()).toBe(17);
+});

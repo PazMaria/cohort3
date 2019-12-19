@@ -78,17 +78,34 @@ class LinkedList {
 
   deleteNode(node) {
     if (node === this.head) {
-      this.head = this.head.forwardNode;
-      this.head.prevNode = null;
-      node = null;
+      if (this.head.forwardNode !== null) {
+        this.head = this.head.forwardNode;
+        this.head.prevNode = null;
+        this.current = node.forwardNode;
+        node = null;
+      } else {
+        this.head = null;
+      }
     } else {
       if (node.forwardNode === null) {
         node.prevNode.forwardNode = null;
+        this.current = node.prevNode;
         node = null;
       }
       node.prevNode.forwardNode = node.forwardNode;
       node.forwardNode.prevNode = node.prevNode;
     }
+  }
+
+  totalAmount() {
+    let total = 0;
+    this.current = this.head;
+    while (this.current.forwardNode !== null) {
+      total += this.current.amount;
+      this.current = this.current.forwardNode;
+    }
+    total += this.current.amount;
+    return total;
   }
 }
 
