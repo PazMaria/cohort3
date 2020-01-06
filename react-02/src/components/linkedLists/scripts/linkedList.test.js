@@ -5,64 +5,83 @@ test("check show method", () => {
   expect(node.show()).toBe("Subject: Apples, Amount: 5");
 });
 
+test("insert node", () => {
+  const link = new LinkedList();
+  link.insertNode("A", 5);
+  expect(link.head.subject).toBe("A");
+  link.insertNode("B", 6);
+  expect(link.head.forwardNode.subject).toBe("B");
+  expect(link.current.subject).toBe("B");
+  link.insertNode("C", 6);
+  expect(link.current.subject).toBe("C");
+  //inserting in between B and C
+  link.previousNode();
+  expect(link.current.subject).toBe("B");
+  link.insertNode("D", 4);
+  expect(link.current.subject).toBe("D");
+  expect(link.current.prevNode.subject).toBe("B");
+  expect(link.current.forwardNode.subject).toBe("C");
+});
+
 test("check first position", () => {
   const link = new LinkedList();
-  const node1 = link.insertNode("Apples", 5, null);
-  const node2 = link.insertNode("Potatoes", 6, node1);
-  expect(link.firstPosition()).toBe("First position: Apples");
+  link.insertNode("A", 5);
+  link.insertNode("B", 6);
+  link.insertNode("C", 3);
+  expect(link.firstPosition().subject).toBe("A");
 });
 
 test("check last position", () => {
   const link = new LinkedList();
-  const node1 = link.insertNode("Apples", 5, null);
-  const node2 = link.insertNode("Potatoes", 6, node1);
-  expect(link.lastPosition()).toBe("Last position: Potatoes");
+  link.insertNode("A", 5);
+  link.insertNode("B", 6);
+  link.insertNode("C", 3);
+  expect(link.lastPosition().subject).toBe("C");
 });
 
 test("check next node", () => {
   const link = new LinkedList();
-  const node1 = link.insertNode("Apples", 5, null);
-  const node2 = link.insertNode("Potatoes", 6, node1);
-  const node3 = link.insertNode("Bananas", 6, node2);
-  expect(link.nextNode(link.head)).toBe("Potatoes");
+  link.insertNode("A", 5);
+  link.insertNode("B", 6);
+  link.insertNode("C", 3);
+  link.firstPosition();
+  expect(link.nextNode().subject).toBe("B");
 });
 
 test("check previous node", () => {
   const link = new LinkedList();
-  const node1 = link.insertNode("Apples", 5, null);
-  const node2 = link.insertNode("Potatoes", 6, node1);
-  const node3 = link.insertNode("Bananas", 6, node2);
-  let lastNode = link.head;
-  while (lastNode.forwardNode !== null) {
-    lastNode = lastNode.forwardNode;
-  }
-  expect(link.previousNode(lastNode)).toBe("Potatoes");
-});
-
-test("insert node", () => {
-  const link = new LinkedList();
-  const node1 = link.insertNode("Apples", 5, null);
-  expect(link.head.subject).toBe("Apples");
-  const node2 = link.insertNode("Potatoes", 6, node1);
-  expect(link.head.forwardNode.subject).toBe("Potatoes");
-  const node3 = link.insertNode("Bananas", 6, node2);
-  const node4 = link.insertNode("Bread", 4, node2);
+  link.insertNode("A", 5);
+  link.insertNode("B", 6);
+  link.insertNode("C", 3);
+  expect(link.previousNode().subject).toBe("B");
 });
 
 test("delete node", () => {
   const link = new LinkedList();
-  const node1 = link.insertNode("Apples", 5, null);
-  const node2 = link.insertNode("Potatoes", 6, node1);
-  const node3 = link.insertNode("Bananas", 6, node2);
-  link.deleteNode(node2);
-  expect(node1.forwardNode.subject).toBe("Bananas");
+  link.insertNode("A", 5);
+  link.insertNode("B", 6);
+  link.insertNode("C", 3);
+  link.insertNode("D", 3);
+  //Delete las node
+  link.deleteNode();
+  expect(link.current.subject).toBe("C");
+  expect(link.current.forwardNode).toBeNull();
+  //Delete in between nodes
+  link.previousNode();
+  link.deleteNode();
+  expect(link.current.subject).toBe("A");
+  expect(link.current.forwardNode.subject).toBe("C");
+  //Delete first node
+  link.deleteNode();
+  expect(link.current.subject).toBe("C");
+  expect(link.head.subject).toBe("C");
 });
 
 test("get total amounts", () => {
   const link = new LinkedList();
-  const node1 = link.insertNode("Apples", 5, null);
-  const node2 = link.insertNode("Potatoes", 6, node1);
-  const node3 = link.insertNode("Bananas", 6, node2);
-
-  expect(link.totalAmount()).toBe(17);
+  link.insertNode("A", 5);
+  link.insertNode("B", 6);
+  link.insertNode("C", 3);
+  link.insertNode("D", 7);
+  expect(link.totalAmount()).toBe(21);
 });

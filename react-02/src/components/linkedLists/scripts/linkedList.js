@@ -17,14 +17,13 @@ class LinkedList {
     this.current = null;
   }
 
-  insertNode(subject, amount, currentNode) {
+  insertNode(subject, amount) {
     const newNode = new ListNode(subject, amount);
     if (this.head === null) {
       this.head = newNode;
       this.current = newNode;
       return newNode;
     } else {
-      this.current = currentNode;
       if (this.current.forwardNode === null) {
         this.current.forwardNode = newNode;
         newNode.forwardNode = null;
@@ -42,69 +41,64 @@ class LinkedList {
 
   firstPosition() {
     this.current = this.head;
-    return `First position: ${this.head.subject}`;
+    return this.current;
   }
 
   lastPosition() {
-    if (this.head === null) {
-      return "List is empty";
+    let lastNode = this.head;
+    while (lastNode.forwardNode !== null) {
+      lastNode = lastNode.forwardNode;
+    }
+    this.current = lastNode;
+    return this.current;
+  }
+
+  nextNode() {
+    if (this.current.forwardNode === null) {
+      return this.current;
+    }
+    this.current = this.current.forwardNode;
+    return this.current;
+  }
+
+  previousNode() {
+    if (!this.current.prevNode) {
+      return this.current;
     } else {
-      let lastNode = this.head;
-      while (lastNode.forwardNode !== null) {
-        lastNode = lastNode.forwardNode;
-      }
-      this.current = lastNode;
-      return `Last position: ${lastNode.subject}`;
+      this.current = this.current.prevNode;
+      return this.current;
     }
   }
 
-  nextNode(node) {
-    if (!node.forwardNode) {
-      return "This is the last node";
-    } else {
-      this.current = node.forwardNode;
-      return node.forwardNode.subject;
-    }
-  }
-
-  previousNode(node) {
-    if (!node.prevNode) {
-      return "This is the first node";
-    } else {
-      this.current = node.prevNode;
-      return node.prevNode.subject;
-    }
-  }
-
-  deleteNode(node) {
-    if (node === this.head) {
+  deleteNode() {
+    if (this.current === this.head) {
       if (this.head.forwardNode !== null) {
         this.head = this.head.forwardNode;
-        this.head.prevNode = null;
-        this.current = node.forwardNode;
-        node = null;
+        this.current = this.head;
       } else {
         this.head = null;
+        this.current = this.head;
       }
     } else {
-      if (node.forwardNode === null) {
-        node.prevNode.forwardNode = null;
-        this.current = node.prevNode;
-        node = null;
+      if (this.current.forwardNode === null) {
+        this.current = this.current.prevNode;
+        this.current.forwardNode = null;
+      } else {
+        this.current.prevNode.forwardNode = this.current.forwardNode;
+        this.current.forwardNode.prevNode = this.current.prevNode;
+        this.current = this.current.prevNode;
       }
-      node.prevNode.forwardNode = node.forwardNode;
-      node.forwardNode.prevNode = node.prevNode;
     }
   }
 
   totalAmount() {
     let total = 0;
-    this.current = this.head;
-    while (this.current.forwardNode !== null) {
-      total += this.current.amount;
-      this.current = this.current.forwardNode;
+    let loopNode = this.head;
+    while (loopNode.forwardNode !== null) {
+      total += loopNode.amount;
+      loopNode = loopNode.forwardNode;
     }
-    total += this.current.amount;
+    total += loopNode.amount;
     return total;
   }
 }
