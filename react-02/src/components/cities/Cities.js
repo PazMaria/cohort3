@@ -52,7 +52,7 @@ class Cities extends React.Component {
           key={city.key}
           city={city}
           deleteCity={this.deleteCity}
-          calculations={this.calculationsDiv}
+          calculationsDiv={this.calculationsDiv}
         />
       );
     });
@@ -114,7 +114,7 @@ class Cities extends React.Component {
       newKey--;
       this.setState({ message: this.state.cityExist });
     }
-    this.setState({
+    await this.setState({
       cName: "",
       cLat: 0,
       cLong: 0,

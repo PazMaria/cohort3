@@ -104,31 +104,4 @@ class Community {
   }
 }
 
-const functions = {
-  delCityDiv: card => {
-    card.remove();
-  }
-
-  //   calculationsDiv: () => {
-  //     let mostNorthern = document.createElement("input");
-  //     mostNorthern.setAttribute("type", "button");
-  //     mostNorthern.id = "mostNorthern";
-  //     mostNorthern.value = `Most Northern`;
-  //     let mostSouthern = document.createElement("input");
-  //     mostSouthern.setAttribute("type", "button");
-  //     mostSouthern.id = "mostSouthern";
-  //     mostSouthern.value = `Most Southern`;
-  //     let totalPop = document.createElement("input");
-  //     totalPop.setAttribute("type", "button");
-  //     totalPop.id = "totalPop";
-  //     totalPop.value = `Total Population`;
-  //     let resultDiv = document.createElement("div");
-  //     resultDiv.id = "resultDiv";
-  //     rightDiv.appendChild(mostNorthern);
-  //     rightDiv.appendChild(mostSouthern);
-  //     rightDiv.appendChild(totalPop);
-  //     rightDiv.appendChild(resultDiv);
-  //   }
-};
-
-export { City, Community, functions };
+export { City, Community };

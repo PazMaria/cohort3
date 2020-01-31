@@ -4,9 +4,11 @@ import home from "./home.svg";
 import tictac from "./tictac.svg";
 import bank from "./bank.svg";
 import city from "./city.svg";
+import link from "./link.svg";
 import Game from "./components/tictactoe/Game";
 import Account from "./components/accounts/Accounts";
 import Cities from "./components/cities/Cities";
+import LinkedLists from "./components/linkedLists/LinkedLists";
 import "./App.css";
 
 class App extends React.Component {
@@ -60,6 +62,14 @@ class App extends React.Component {
           name="cityApp"
           onClick={e => this.onPushMe(e.target.name)}
         />
+        <img
+          src={link}
+          className="icons"
+          id="idLink"
+          alt="linkLogo"
+          name="linkedListApp"
+          onClick={e => this.onPushMe(e.target.name)}
+        />
       </div>
     );
   };
@@ -111,6 +121,16 @@ class App extends React.Component {
           <h4>Cities</h4>
           <div className="gameDiv">
             <Cities />
+          </div>
+        </div>
+      );
+    }
+    if (this.state.whoClicked === "linkedListApp") {
+      return (
+        <div className="tictacDiv">
+          <h4>Linked List</h4>
+          <div className="gameDiv">
+            <LinkedLists />
           </div>
         </div>
       );

@@ -24,7 +24,8 @@
 .tictacDiv {
   font: 14px "Century Gothic", Futura, sans-serif;
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  height: 100vh;
   /* min-height: 90vmin; */
   background-color: #282c34;
 }
@@ -46,9 +47,16 @@ h4 {
   transition: transform 0.6s;
   margin: 20px;
 }
+
+#idLink,
+#idBanana {
+  height: 9vmin;
+}
+
 #idApple,
 #idStraw,
-#idFood {
+#idFood,
+#idLink {
   animation: logo-spin-left infinite 20s linear;
 }
 
@@ -89,6 +97,9 @@ h4 {
   animation: change-back infinite 0.7s;
 }
 #idFood:hover {
+  animation: change-back infinite 0.7s;
+}
+#idLink:hover {
   animation: change-back infinite 0.7s;
 }
 

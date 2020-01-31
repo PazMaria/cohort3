@@ -20,9 +20,9 @@ class City extends React.Component {
     const errorMessage = await apiFunctions.updateCity(this.props.city);
     if (errorMessage) {
       this.props.city.movedOut(Number(this.state.inputPop));
-    } else {
-      this.props.calculationsDiv();
     }
+    this.props.calculationsDiv();
+
     this.setState({
       inputPop: 0
     });
@@ -33,9 +33,9 @@ class City extends React.Component {
     const errorMessage = await apiFunctions.updateCity(this.props.city);
     if (errorMessage) {
       this.props.city.movedIn(Number(this.state.inputPop));
-    } else {
-      this.props.calculationsDiv();
     }
+    this.props.calculationsDiv();
+
     this.setState({
       inputPop: 0
     });
