@@ -12,7 +12,7 @@ const LinkedLists = () => {
 
   const handleAdd = () => {
     if (subject !== "" && amount !== "") {
-      list.insertNode(subject, amount);
+      list.insertNode(subject, Number(amount));
       setPosition(list.current.subject);
       setSubject("");
       setAmount("");
@@ -43,31 +43,55 @@ const LinkedLists = () => {
   };
 
   const handleFirst = () => {
-    list.firstPosition();
-    setPosition(list.current.subject);
-  };
-
-  const handlePrevious = () => {
-    list.previousNode();
-    setPosition(list.current.subject);
-  };
-
-  const handleNext = () => {
-    list.nextNode();
-    setPosition(list.current.subject);
-  };
-
-  const handleLast = () => {
-    list.lastPosition();
-    setPosition(list.current.subject);
-  };
-
-  const handleDelete = () => {
-    list.deleteNode();
     if (list.current) {
+      list.firstPosition();
       setPosition(list.current.subject);
     } else {
       setPosition("List is empty");
+    }
+  };
+
+  const handlePrevious = () => {
+    if (list.current) {
+      list.previousNode();
+      setPosition(list.current.subject);
+    } else {
+      setPosition("List is empty");
+    }
+  };
+
+  const handleNext = () => {
+    if (list.current) {
+      list.nextNode();
+      setPosition(list.current.subject);
+    } else {
+      setPosition("List is empty");
+    }
+  };
+
+  const handleLast = () => {
+    if (list.current) {
+      list.lastPosition();
+      setPosition(list.current.subject);
+    } else {
+      setPosition("List is empty");
+    }
+  };
+
+  const handleTotal = () => {
+    let tot = list.totalAmount();
+    setMessage(tot);
+    setTimeout(() => setMessage(""), 3000);
+  };
+
+  const handleDelete = () => {
+    if (list.current) {
+      list.deleteNode();
+      if (list.current) {
+        setPosition(list.current.subject);
+      } else {
+        setPosition("List is empty");
+      }
     }
   };
 
@@ -122,7 +146,12 @@ const LinkedLists = () => {
           value="Last"
           onClick={handleLast}
         />
-        <input className="buttonNode" type="button" value="Total" />
+        <input
+          className="buttonNode"
+          type="button"
+          value="Total"
+          onClick={handleTotal}
+        />
         <input
           className="delNode"
           type="button"

@@ -40,33 +40,41 @@ class LinkedList {
   }
 
   firstPosition() {
-    this.current = this.head;
-    return this.current;
+    if (this.head !== null) {
+      this.current = this.head;
+      return this.current;
+    }
   }
 
   lastPosition() {
-    let lastNode = this.head;
-    while (lastNode.forwardNode !== null) {
-      lastNode = lastNode.forwardNode;
+    if (this.head !== null) {
+      let lastNode = this.head;
+      while (lastNode.forwardNode !== null) {
+        lastNode = lastNode.forwardNode;
+      }
+      this.current = lastNode;
+      return this.current;
     }
-    this.current = lastNode;
-    return this.current;
   }
 
   nextNode() {
-    if (this.current.forwardNode === null) {
+    if (this.head !== null) {
+      if (this.current.forwardNode === null) {
+        return this.current;
+      }
+      this.current = this.current.forwardNode;
       return this.current;
     }
-    this.current = this.current.forwardNode;
-    return this.current;
   }
 
   previousNode() {
-    if (!this.current.prevNode) {
-      return this.current;
-    } else {
-      this.current = this.current.prevNode;
-      return this.current;
+    if (this.head !== null) {
+      if (!this.current.prevNode) {
+        return this.current;
+      } else {
+        this.current = this.current.prevNode;
+        return this.current;
+      }
     }
   }
 
@@ -79,7 +87,6 @@ class LinkedList {
       } else {
         this.head = null;
         this.current = null;
-        // return "List is empty";
       }
     } else {
       if (this.current.forwardNode === null) {
@@ -94,14 +101,18 @@ class LinkedList {
   }
 
   totalAmount() {
-    let total = 0;
-    let loopNode = this.head;
-    while (loopNode.forwardNode !== null) {
+    if (this.head === null) {
+      return "List is empty";
+    } else {
+      let total = 0;
+      let loopNode = this.head;
+      while (loopNode.forwardNode !== null) {
+        total += loopNode.amount;
+        loopNode = loopNode.forwardNode;
+      }
       total += loopNode.amount;
-      loopNode = loopNode.forwardNode;
+      return total;
     }
-    total += loopNode.amount;
-    return total;
   }
 }
 
