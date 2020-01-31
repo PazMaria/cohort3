@@ -73,16 +73,18 @@ class LinkedList {
   deleteNode() {
     if (this.current === this.head) {
       if (this.head.forwardNode !== null) {
-        this.head = this.head.forwardNode;
+        this.head = this.current.forwardNode;
+        this.head.prevNode = null;
         this.current = this.head;
       } else {
         this.head = null;
-        this.current = this.head;
+        this.current = null;
+        // return "List is empty";
       }
     } else {
       if (this.current.forwardNode === null) {
+        this.current.prevNode.forwardNode = null;
         this.current = this.current.prevNode;
-        this.current.forwardNode = null;
       } else {
         this.current.prevNode.forwardNode = this.current.forwardNode;
         this.current.forwardNode.prevNode = this.current.prevNode;
