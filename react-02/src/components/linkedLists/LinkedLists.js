@@ -8,12 +8,18 @@ const LinkedLists = () => {
   const [subject, setSubject] = useState("");
   const [amount, setAmount] = useState("");
   const [position, setPosition] = useState("List is empty");
+  let [message, setMessage] = useState("");
 
   const handleAdd = () => {
-    list.insertNode(subject, amount);
-    setPosition(list.current.subject);
-    setSubject("");
-    setAmount("");
+    if (subject !== "" && amount !== "") {
+      list.insertNode(subject, amount);
+      setPosition(list.current.subject);
+      setSubject("");
+      setAmount("");
+      setMessage("");
+    } else {
+      setMessage("Please enter subject and amount");
+    }
   };
 
   const displayList = () => {
@@ -72,8 +78,6 @@ const LinkedLists = () => {
         <input
           type="text"
           id="idSubject"
-          // value={subject}
-          // onChange={itemChange}
           value={subject}
           onChange={event => setSubject(event.target.value)}
         />
@@ -81,8 +85,6 @@ const LinkedLists = () => {
         <input
           type="number"
           id="idAmount"
-          // value={amount}
-          // onChange={amountChange}
           value={amount}
           onChange={event => setAmount(event.target.value)}
         />
@@ -93,7 +95,8 @@ const LinkedLists = () => {
           onClick={handleAdd}
         />
       </div>
-      <div className="current">Current Item:{position}</div>
+      <div className="message">{message}</div>
+      <div className="current">Current Item: {position}</div>
       <div className="linkFunctions">
         <input
           className="buttonNode"

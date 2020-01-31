@@ -1,0 +1,81 @@
+.linkContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  grid-row-gap: 50px;
+  grid-template-rows: 50px 20px 20px auto;
+}
+
+.linkItem {
+  margin: 10px;
+  padding: 10px;
+  height: 95vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  grid-template-rows: 50px;
+}
+.linkFunctions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 50px;
+}
+
+#idSubject,
+#idAmount {
+  height: 25px;
+}
+
+.addNode {
+  width: 180px;
+  height: 25px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.3);
+  font-size: 1.2rem;
+  background-color: #112d32;
+  color: white;
+}
+.buttonNode {
+  width: 100px;
+  height: 25px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.3);
+  font-size: 1.2rem;
+  background-color: #6e6658;
+  color: white;
+}
+
+.delNode {
+  width: 180px;
+  height: 25px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.3);
+  font-size: 1.2rem;
+  background-color: #112d32;
+  color: white;
+}
+
+#idSubject {
+  text-align: left;
+  border-radius: 10px;
+  width: 200px;
+}
+
+#idAmount {
+  text-align: right;
+  border-radius: 10px;
+}
+
+.list {
+  margin: auto;
+  width: 200px;
+}
+
+.current {
+  font-size: 1.2rem;
+}
+
+.message {
+  font-size: 1.2rem;
+  color: red;
+}
