@@ -40,7 +40,6 @@ const FifoLifos = () => {
     "Y",
     "Z"
   ];
-  // let index = 0;
 
   const handlePutIn = () => {
     queueL.addQueue(abc[index]);
@@ -52,25 +51,36 @@ const FifoLifos = () => {
     setIndex(index + 1);
   };
 
+  const handleTakeOut = () => {
+    queueL.deleteQueue();
+    setfirstQueue(queueL.queueArr[0]);
+    stackL.deleteStack();
+    setlastStack(stackL.stackArr[stackL.stackArr.length - 1]);
+  };
+
   return (
-    <div className="linkContainer">
+    <div className="lifoContainer">
       {/* <div className="message">{message}</div> */}
       <div className="itemIn">
         <div className="item">Item to add: {abc[index]} </div>
-        <button className="in" onClick={handlePutIn}>
+        <button className="putIn" onClick={handlePutIn}>
           Put In
         </button>
       </div>
-      <div className="itemOut">
-        <div className="item">Item out from Queue: </div>
-        <div className="item">Item out from Stack: </div>
-      </div>
-      <button className="out">Take Out</button>
       <div className="lists">
         <h3>Queue</h3>
         <h3>Stack</h3>
         <Fifo queueL={queueL} />
         <Lifo stackL={stackL} />
+      </div>
+      <div className="itemOut">
+        <div className="item">Item out of Queue: {firstQueue} </div>
+        <div className="item">Item out of Stack: {lastStack}</div>
+        <div classname="divOut">
+          <button classname="takeOut" onClick={handleTakeOut}>
+            Take Out
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,8 +1,17 @@
+.lifoContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto 1fr;
+  grid-gap: 20px;
+  grid-row-gap: 50px;
+}
+
 .lists {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 50px;
 }
+
 .itemOut {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -14,15 +23,15 @@
   grid-gap: 50px;
 }
 
-.buttonOut {
+.divOut {
   display: flex;
   flex-direction: column;
-  margin: auto;
-  /* align-items: center;
-  justify-content: center; */
+  align-items: center;
+  justify-content: center;
 }
-.in,
-.out {
+
+.takeOut,
+.putIn {
   margin: auto;
   width: 180px;
   height: 25px;
@@ -32,8 +41,3 @@
   background-color: #112d32;
   color: white;
 }
-
-/* .item {
-  width: 280px;
-  height: 25px;
-} */
