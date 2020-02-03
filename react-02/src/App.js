@@ -5,10 +5,12 @@ import tictac from "./tictac.svg";
 import bank from "./bank.svg";
 import city from "./city.svg";
 import link from "./link.svg";
+import stack from "./coins.svg";
 import Game from "./components/tictactoe/Game";
 import Account from "./components/accounts/Accounts";
 import Cities from "./components/cities/Cities";
 import LinkedLists from "./components/linkedLists/LinkedLists";
+import FifoLifos from "./components/fifoLifo/FifoLifos";
 import "./App.css";
 
 class App extends React.Component {
@@ -68,6 +70,14 @@ class App extends React.Component {
           id="idLink"
           alt="linkLogo"
           name="linkedListApp"
+          onClick={e => this.onPushMe(e.target.name)}
+        />
+        <img
+          src={stack}
+          className="icons"
+          id="idStack"
+          alt="stackLogo"
+          name="lifoFifoApp"
           onClick={e => this.onPushMe(e.target.name)}
         />
       </div>
@@ -131,6 +141,16 @@ class App extends React.Component {
           <h4>Linked List</h4>
           <div className="gameDiv">
             <LinkedLists />
+          </div>
+        </div>
+      );
+    }
+    if (this.state.whoClicked === "lifoFifoApp") {
+      return (
+        <div className="tictacDiv">
+          <h4>Lifo Fifo</h4>
+          <div className="gameDiv">
+            <FifoLifos />
           </div>
         </div>
       );
