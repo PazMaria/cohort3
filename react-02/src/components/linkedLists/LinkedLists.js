@@ -1,12 +1,13 @@
 import React, { useState, useContext } from "react";
 import "../../../src/linkedList.css";
 import { LinkedList } from "./scripts/linkedList";
-import { Theme } from "../context/context";
+import { ThemeContext } from "../context/context";
 
 const list = new LinkedList();
 
 const LinkedLists = () => {
-  // const context = useContext(ThemeContext);
+  const { isLightTheme, green, white } = useContext(ThemeContext);
+  const theme = isLightTheme ? green : white;
   const [subject, setSubject] = useState("");
   const [amount, setAmount] = useState("");
   const [position, setPosition] = useState("List is empty");
@@ -98,7 +99,7 @@ const LinkedLists = () => {
   };
 
   return (
-    <div className="linkContainer">
+    <div className="linkContainer" style={{ background: theme.bgDiv }}>
       <div className="linkItem">
         Item:
         <input
@@ -119,6 +120,7 @@ const LinkedLists = () => {
           type="button"
           value="Add Item"
           onClick={handleAdd}
+          style={{ color: theme.text, background: theme.bgBut }}
         />
       </div>
       <div className="message">{message}</div>
@@ -159,6 +161,7 @@ const LinkedLists = () => {
           type="button"
           value="Delete Item"
           onClick={handleDelete}
+          style={{ color: theme.text, background: theme.bgBut }}
         />
       </div>
       <div className="list">

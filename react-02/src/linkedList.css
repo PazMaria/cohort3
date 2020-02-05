@@ -1,4 +1,8 @@
 .linkContainer {
+  margin: auto;
+  width: 90%;
+  height: 100%;
+  background-color: #88bdbc;
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 20px;

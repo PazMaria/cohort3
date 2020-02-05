@@ -61,18 +61,7 @@ const FifoLifos = () => {
     stackL.deleteStack();
     setlastStack(stackL.stackArr[stackL.stackArr.length - 1]);
   };
-  // useEffect(() => {
 
-  // queueL.queueArr.map(data,i => (
-  //   if(i===index){
-  //     <li>{data}</li>
-  //   }
-
-  // ))
-
-  //   queueL.queueArr[index].color = "green";
-  //   stackL.stackArr[index].background = "green";
-  // },[index]);
   return (
     <div className="lifoContainer" style={{ background: theme.bgDiv }}>
       {/* <div className="message">{message}</div> */}
