@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Queue, Stack } from "./fifoLifo.js";
 import Fifo from "./Fifo.js";
 import Lifo from "./Lifo.js";
 import "../../../src/fifoLifo.css";
+import { ThemeContext } from "../context/context";
 
 const queueL = new Queue();
 const stackL = new Stack();
 
 const FifoLifos = () => {
+  const { isLightTheme, light, dark, toggleTheme } = useContext(ThemeContext);
+  const theme = isLightTheme ? light : dark;
+
   const [firstQueue, setfirstQueue] = useState("");
   const [lastStack, setlastStack] = useState("");
   const [index, setIndex] = useState(0);
@@ -57,13 +61,33 @@ const FifoLifos = () => {
     stackL.deleteStack();
     setlastStack(stackL.stackArr[stackL.stackArr.length - 1]);
   };
+  // useEffect(() => {
 
+  // queueL.queueArr.map(data,i => (
+  //   if(i===index){
+  //     <li>{data}</li>
+  //   }
+
+  // ))
+
+  //   queueL.queueArr[index].color = "green";
+  //   stackL.stackArr[index].background = "green";
+  // },[index]);
   return (
     <div className="lifoContainer">
       {/* <div className="message">{message}</div> */}
       <div className="itemIn">
-        <div className="item">Item to add: {abc[index]} </div>
-        <button className="putIn" onClick={handlePutIn}>
+        <div
+          className="item"
+          style={{ color: theme.syntax, background: theme.bg }}
+        >
+          Item to add: {abc[index]}{" "}
+        </div>
+        <button
+          className="putIn"
+          onClick={handlePutIn}
+          style={{ color: theme.syntax, background: theme.bg }}
+        >
           Put In
         </button>
       </div>
@@ -76,8 +100,8 @@ const FifoLifos = () => {
       <div className="itemOut">
         <div className="item">Item out of Queue: {firstQueue} </div>
         <div className="item">Item out of Stack: {lastStack}</div>
-        <div classname="divOut">
-          <button classname="takeOut" onClick={handleTakeOut}>
+        <div className="divOut">
+          <button className="takeOut" onClick={handleTakeOut}>
             Take Out
           </button>
         </div>

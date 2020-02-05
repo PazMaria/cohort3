@@ -1,13 +1,11 @@
 import React from "react";
 
 const Lifo = props => {
-  const displayLifo = () => {
-    return props.stackL.stackArr;
-  };
-
   return (
     <div>
-      <ul>{displayLifo()}</ul>
+      {props.stackL.stackArr.map(data => (
+        <li>{data}</li>
+      ))}
     </div>
   );
 };
