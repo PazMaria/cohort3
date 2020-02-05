@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../../../src/linkedList.css";
 import { LinkedList } from "./scripts/linkedList";
+import { Theme } from "../context/context";
 
 const list = new LinkedList();
 
 const LinkedLists = () => {
+  // const context = useContext(ThemeContext);
   const [subject, setSubject] = useState("");
   const [amount, setAmount] = useState("");
   const [position, setPosition] = useState("List is empty");

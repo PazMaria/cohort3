@@ -9,8 +9,8 @@ const queueL = new Queue();
 const stackL = new Stack();
 
 const FifoLifos = () => {
-  const { isLightTheme, light, dark, toggleTheme } = useContext(ThemeContext);
-  const theme = isLightTheme ? light : dark;
+  const { isLightTheme, green, white } = useContext(ThemeContext);
+  const theme = isLightTheme ? green : white;
 
   const [firstQueue, setfirstQueue] = useState("");
   const [lastStack, setlastStack] = useState("");
@@ -74,19 +74,14 @@ const FifoLifos = () => {
   //   stackL.stackArr[index].background = "green";
   // },[index]);
   return (
-    <div className="lifoContainer">
+    <div className="lifoContainer" style={{ background: theme.bgDiv }}>
       {/* <div className="message">{message}</div> */}
       <div className="itemIn">
-        <div
-          className="item"
-          style={{ color: theme.syntax, background: theme.bg }}
-        >
-          Item to add: {abc[index]}{" "}
-        </div>
+        <div className="item">Item to add: {abc[index]} </div>
         <button
           className="putIn"
           onClick={handlePutIn}
-          style={{ color: theme.syntax, background: theme.bg }}
+          style={{ color: theme.text, background: theme.bgBut }}
         >
           Put In
         </button>
@@ -100,11 +95,15 @@ const FifoLifos = () => {
       <div className="itemOut">
         <div className="item">Item out of Queue: {firstQueue} </div>
         <div className="item">Item out of Stack: {lastStack}</div>
-        <div className="divOut">
-          <button className="takeOut" onClick={handleTakeOut}>
-            Take Out
-          </button>
-        </div>
+      </div>
+      <div className="divOut">
+        <button
+          className="takeOut"
+          onClick={handleTakeOut}
+          style={{ color: theme.text, background: theme.bgBut }}
+        >
+          Take Out
+        </button>
       </div>
     </div>
   );

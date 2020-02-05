@@ -6,14 +6,20 @@ import bank from "./bank.svg";
 import city from "./city.svg";
 import link from "./link.svg";
 import stack from "./coins.svg";
+import settings from "./settings.svg";
 import Game from "./components/tictactoe/Game";
 import Account from "./components/accounts/Accounts";
 import Cities from "./components/cities/Cities";
 import LinkedLists from "./components/linkedLists/LinkedLists";
 import FifoLifos from "./components/fifoLifo/FifoLifos";
+import Settings from "./components/context/Settings";
+import { ThemeContext } from "./components/context/context";
+// import ThemeProvider from "./components/context/Settings";
 import "./App.css";
 
 class App extends React.Component {
+  static contextType = ThemeContext;
+
   constructor() {
     super();
     this.state = {
@@ -78,6 +84,14 @@ class App extends React.Component {
           id="idStack"
           alt="stackLogo"
           name="lifoFifoApp"
+          onClick={e => this.onPushMe(e.target.name)}
+        />
+        <img
+          src={settings}
+          className="icons"
+          id="idSettings"
+          alt="settingsLogo"
+          name="settingsApp"
           onClick={e => this.onPushMe(e.target.name)}
         />
       </div>
@@ -155,15 +169,27 @@ class App extends React.Component {
         </div>
       );
     }
+    if (this.state.whoClicked === "settingsApp") {
+      return (
+        <div className="tictacDiv">
+          <h4>Settings</h4>
+          <div className="gameDiv">
+            <Settings />
+          </div>
+        </div>
+      );
+    }
   };
 
   render() {
+    // const { isLightTheme, green, white } = this.context;
+    // const theme = isLightTheme ? green : white;
     let newDiv = <div>{this.state.whoClicked} </div>;
     return (
       <div className="App">
         {this.showIcons()}
         {newDiv}
-        <div>{this.showApp()}</div>
+        <div className="appContainer">{this.showApp()}</div>
         {/* <div>
           Icons from{" "}
           <a href="https://www.flaticon.com/" title="Flaticon">

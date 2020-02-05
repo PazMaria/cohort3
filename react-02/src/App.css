@@ -56,7 +56,8 @@ h4 {
 #idApple,
 #idStraw,
 #idFood,
-#idLink {
+#idLink,
+#idSettings {
   animation: logo-spin-left infinite 20s linear;
 }
 
@@ -74,7 +75,8 @@ h4 {
 }
 
 #idBanana,
-#idBlender {
+#idBlender,
+#idStack {
   animation: logo-spin-right infinite 20s linear;
 }
 
@@ -90,9 +92,7 @@ h4 {
 #idApple:hover {
   animation: change-back infinite 0.7s;
 }
-#idBanana:hover {
-  animation: change-back infinite 0.7s;
-}
+
 #idStraw:hover {
   animation: change-back infinite 0.7s;
 }
@@ -100,6 +100,9 @@ h4 {
   animation: change-back infinite 0.7s;
 }
 #idLink:hover {
+  animation: change-back infinite 0.7s;
+}
+#idSettings:hover {
   animation: change-back infinite 0.7s;
 }
 
@@ -112,7 +115,13 @@ h4 {
   }
 }
 
+#idBanana:hover {
+  animation: logo-spin-fast infinite 0.4s linear;
+}
 #idBlender:hover {
+  animation: logo-spin-fast infinite 0.4s linear;
+}
+#idStack:hover {
   animation: logo-spin-fast infinite 0.4s linear;
 }
 
