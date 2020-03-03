@@ -1,0 +1,31 @@
+------------------Census by Community 2018------------------
+
+                 Total lines from file: 303                 
+============================================================
+
+By Class:
+
+Class Name                    Population                    
+------------------------------------------------------------
+Residential                   1263734                       
+
+Industrial                    922                           
+
+Major Park                    0                             
+
+Residual Sub Area             0                             
+
+============================================================
+
+By Sector:
+
+Sector Name                   Population                    
+------------------------------------------------------------
+CENTRE                        199977                        
+SOUTH                         227345                        
+NORTHEAST                     185534                        
+NORTHWEST                     174126                        
+NORTH                         160502                        
+SOUTHEAST                     135009                        
+EAST                          57666                         
+WEST                          124497                        
